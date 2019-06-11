@@ -15,3 +15,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('user', 'UserController@show');
+Route::get('/admin', '\Modules\Admin\Http\Controllers\AdminController@index');
