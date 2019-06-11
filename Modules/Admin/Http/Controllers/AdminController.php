@@ -22,7 +22,7 @@ class AdminController extends Controller
         if(request()->isMethod('post')){
             $data = request()->post();
             if($data['luotest_response']==''){
-                 echo "验证错误";die;
+                 echo "验证错误123";die;
             }
 
             //var_dump($data['password']);die;
