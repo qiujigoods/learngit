@@ -2,9 +2,10 @@
 
 namespace Modules\Admin\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\Http\Response;
-use Illuminate\Routing\Controller;
+use App\User;
+use App\Http\Request;
+use App\Http\Controllers\Controller;
+use DB;
 
 class AdminController extends Controller
 {
@@ -27,17 +28,28 @@ class AdminController extends Controller
 
             //var_dump($data['password']);die;
             $res  = DB::table("admin")
-                                ->where('admin_name',$data['admin_name'])
-                                ->where('password',md5($data['password']))
-                                ->where('is_del','0')
+                                ->where('admin_name', $data['admin_name'])
+                                ->where('password', md5($data['password']))
+                                ->where('is_del', '0')
                                 ->first();
             if($res){
-                return redirect('index/index');
+                return redirect('admin/home');
             }else{
                 echo "账号或密码错误";die;
             }
         }
         
+    }
+
+    public function home()
+    {
+        $res = DB::table('menu')
+                            ->where('parent_id','=',0)
+                            ->get();
+
+        $data =  DB::table('menu')->get();        
+      
+        return view('admin::login/index',['res'=>$res,'data'=>$data]);
     }
 
 

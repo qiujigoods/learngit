@@ -14,3 +14,6 @@
 Route::prefix('admin')->group(function() {
     Route::get('/', 'AdminController@index');
 });
+
+Route::any('admin/login', 'AdminController@login');
+Route::any('admin/home', 'AdminController@home');
