@@ -14,7 +14,8 @@
 Route::get('/', function () {
     return view('login');
 });
-
+Route::get('user', 'UserController@show');
+Route::get('/admin', '\Modules\Admin\Http\Controllers\AdminController@index');
 //登录
 Route::any('index/login','IndexController@login');
 Route::any('index/index','IndexController@index');  //主页
