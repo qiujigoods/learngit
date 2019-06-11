@@ -68,7 +68,7 @@
                 <?php if($v->id == $value->parent_id) { ?>
                 <ul class="sub-menu">
                     <li>
-                        <a _href="admin-list.html">
+                        <a _href="{{url($value->url)}}">
                             <i class="iconfont">&#xe6a7;</i>
                             <cite><?php echo $value->name; ?></cite>
                         </a>
