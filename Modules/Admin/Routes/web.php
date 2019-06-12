@@ -17,5 +17,13 @@ Route::prefix('admin')->group(function() {
 
 Route::any('admin/login', 'AdminController@login');
 Route::any('admin/home', 'AdminController@home');
+Route::any('admin/out', 'AdminController@out');
 
 Route::any('role/add', 'RoleController@add');
+
+
+Route::any('brand/index','BrandController@index');
+Route::any('brand/add','BrandController@add');
+Route::any('brand/brandDel','BrandController@brandDel');
+Route::any('brand/brandUpd','BrandController@brandUpd');
+Route::post('brand/brandUpdate','BrandController@brandUpdate');
