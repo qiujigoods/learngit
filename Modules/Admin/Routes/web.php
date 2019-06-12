@@ -17,6 +17,8 @@ Route::prefix('admin')->group(function() {
 
 Route::any('admin/login', 'AdminController@login');
 Route::any('admin/home', 'AdminController@home');
+
+Route::any('role/add', 'RoleController@add');
 Route::any('admin/out', 'AdminController@out');
 
 Route::any('role/add', 'RoleController@add');

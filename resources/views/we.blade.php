@@ -2,6 +2,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<base href="../">
 		<link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
 		<link rel="stylesheet" href="../assets/css/font-awesome.min.css" />
 		<!--[if IE 7]>
