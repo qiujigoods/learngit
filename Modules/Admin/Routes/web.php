@@ -40,3 +40,5 @@ Route::any('type/updFl','TypeController@updFl');
 Route::any('type/doUpdate','TypeController@doUpdate');
 
 Route::any('type/delFl','TypeController@delFl');
+
+Route::any('customer/pass','CustomerController@pass');
