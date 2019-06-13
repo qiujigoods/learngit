@@ -21,45 +21,14 @@
   
   <body>
     <div class="x-body">
-        <form class="layui-form" action="add" method="post" enctype="multipart/form-data">
+        <form class="layui-form" action="comment" method="post" enctype="multipart/form-data">
+          <input type="hidden" name="id" value="<?php echo $_GET['id'] ?>">
           <div class="layui-form-item">
               <label for="L_email" class="layui-form-label">
-                  <span class="x-red">*</span>品牌名称
+                  编辑回复内容
               </label>
               <div class="layui-input-inline">
-                  <input type="text" name="name" required="" autocomplete="off" class="layui-input">
-              </div>
-          </div>
-          <div class="layui-form-item">
-              <label for="L_username" class="layui-form-label">
-                  <span class="x-red"></span>Logo
-              </label>
-              <div class="layui-input-inline">
-                  <input type="file" name="logo">
-              </div>
-          </div>
-          <div class="layui-form-item">
-              <label for="L_pass" class="layui-form-label">
-                  <span class="x-red"></span>Url
-              </label>
-              <div class="layui-input-inline">
-                  <input type="text"  name="url" required="" autocomplete="off" class="layui-input">
-              </div>
-          </div>
-          <div class="layui-form-item">
-              <label for="L_repass" class="layui-form-label">
-                  <span class="x-red"></span>描述
-              </label>
-              <div class="layui-input-inline">
-                  <input type="text" name="description" required="" autocomplete="off" class="layui-input">
-              </div>
-          </div>
-          <div class="layui-form-item">
-              <label for="L_repass" class="layui-form-label">
-                  <span class="x-red"></span>品牌分类
-              </label>
-              <div class="layui-input-inline">
-                  <input type="text" name="category_ids" required="" autocomplete="off" class="layui-input">
+                  <input type="text" name="recontents" required="" autocomplete="off" class="layui-input">
               </div>
           </div>
           <div class="layui-form-item">

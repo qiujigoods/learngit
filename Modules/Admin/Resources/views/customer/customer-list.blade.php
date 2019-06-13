@@ -49,11 +49,12 @@
             <th>
               <div class="layui-unselect header layui-form-checkbox" lay-skin="primary"><i class="layui-icon">&#xe605;</i></div>
             </th>
-            <th>ID</th>
-            <th>品牌名称</th>
-            <th>Logo</th>
-            <th>描述</th>
-            <th>排序</th>
+            <th>商品名</th>
+            <th>评论用户</th>
+            <th>评论内容</th>
+            <th>评论时间</th>            
+            <th>回复内容</th>
+            <th>回复时间</th>
             <th>状态</th>
             <th>操作</th></tr>
         </thead>
@@ -63,18 +64,24 @@
               <td>
                 <div class="layui-unselect layui-form-checkbox" lay-skin="primary" data-id='2'><i class="layui-icon">&#xe605;</i></div>
               </td>
-              <td><?php echo $v->id; ?></td>
               <td><?php echo $v->name; ?></td>
-              <td><a href="<?php echo $v->url; ?>"><img src="<?php echo $v->logo; ?>" style="width: 70px;height: 50px"></a></td>
-              <td><?php echo $v->description; ?></td>
-              <td><?php echo $v->sort; ?></td>
+              <td><?php echo $v->username; ?></td>
+              <td><?php echo $v->contents; ?></td>
+              <td><?php echo $v->comment_time; ?></td>
+              <?php if($v->recontents){  ?>
+                  <td><?php echo $v->recontents; ?></td>
+                  <td><?php echo date('Y-m-d H:i:s',$v->recomment_time); ?></td>
+              <?php }else{  ?>
+                  <td>未回复</td>
+                  <td>未回复</td>
+              <?php } ?>
               <td class="td-status">
                 <span class="layui-btn layui-btn-normal layui-btn-mini">已启用</span></td>
               <td class="td-manage">
                 <a onclick="member_stop(this,'10001')" href="javascript:;"  title="启用">
                   <i class="layui-icon">&#xe601;</i>
                 </a>
-                <a title="编辑"  onclick='x_admin_show("编辑","brandUpd?id=<?php echo $v->id; ?>",600,400)' href="javascript:;">
+                <a title="回复"  onclick='x_admin_show("回复","comment?id=<?php echo $v->id; ?>",600,400)' href="javascript:;">
                   <i class="layui-icon">&#xe642;</i>
                 </a>
                 <a title="删除" href="brandDel?id=<?php echo $v->id; ?>">

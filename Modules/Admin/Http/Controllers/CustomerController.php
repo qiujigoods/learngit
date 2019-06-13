@@ -12,6 +12,26 @@ class CustomerController extends Controller
 {
 	public function pass()
 	{
-		return view('admin::customer/customer-list');
+		$res = DB::table('comment')
+							->join('goods' ,'comment.goods_id' ,'=' ,'goods.id')
+							->join('user' ,'comment.user_id' ,'=' ,'user.id')
+							->paginate(10);
+		//var_dump($res);die;
+		return view('admin::customer/customer-list',['res'=>$res]);
 	}	
+
+	public function comment()
+	{
+		if(request()->isMethod('post')){
+			$data = request()->post();
+			$arr = [
+				'recontents'=>$data['recontents'],
+				'recomment_time'=>time(),
+			];
+
+			$res = DB::table('comment')->where('id',$data['id'])->update($arr);
+		}else{
+			return view('admin::customer/customer-add');
+		}
+	}
 }
