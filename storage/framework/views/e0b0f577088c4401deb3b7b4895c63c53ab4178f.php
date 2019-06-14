@@ -97,7 +97,7 @@
               </label>
               <!-- <button class="layui-btn layui-btn layui-btn-xs" type="text">修改</button> -->
               <!-- <input type="submit" value="xiugai"> -->
-              <button  class="layui-btn" type="submit" lay-filter="add" lay-submit="">
+              <button  class="layui-btn clo" type="submit" lay-filter="add" lay-submit="">
                   修改
               </button>
           </div>
@@ -124,18 +124,24 @@
             }
           });
 
-          //监听提交
-          form.on('submit(add)', function(data){
-            console.log(data);
-            //发异步，把数据提交给php
-            layer.alert("修改成功", {icon: 6},function () {
-                // 获得frame索引
-                var index = parent.layer.getFrameIndex(window.name);
-                //关闭当前frame
+          $(".clo").on('click',function(){
+            // alert(11);
+            var index = parent.parent.layer.getFrameIndex(window.name);
                 parent.layer.close(index);
-            });
-            // return false;
-          });
+          })
+
+          //监听提交
+          // form.on('submit(add)', function(data){
+          //   console.log(data);
+          //   //发异步，把数据提交给php
+          //   layer.alert("修改成功", {icon: 6},function () {
+          //       // 获得frame索引
+          //       var index = parent.layer.getFrameIndex(window.name);
+          //       //关闭当前frame
+          //       parent.layer.close(index);
+          //   });
+          //   // return false;
+          // });
           
           
         });
