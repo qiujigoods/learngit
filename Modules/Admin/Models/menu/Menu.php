@@ -11,7 +11,7 @@ class Menu extends Model
     public  $timestamps = false;
     public static function showType()
     {
-    	$info = Menu::get();
+        $info = Menu::orderBy('parent_id', 'asc')->get();
     	$result = self::list_level($info, $parent_id = 0, $level = 0);
 
     	return $result;
@@ -21,13 +21,33 @@ class Menu extends Model
     {
         static $array = array();
 
-        foreach ($data as $k => $v){
-            if ($parent_id == $v->parent_id){
+        foreach ($data as $k => $v) {
+            # code...
+            if($parent_id == $v->parent_id){
                 $v->level = $level;
+
                 $array[] = $v;
+
                 self::list_level($data,$v->id,$level+1);
             }
         }
         return $array;
     }
+
+    public function del($id)
+    {
+        // $id = $_GET['id'];
+        $category = $this->where('id',$id);
+
+        return $category->delete();
+    }
+
+    public function find($id)
+    {
+        // $id = $_GET['id'];
+        $category = $this->where('id',$id);
+
+        return $category;
+    }
+
 }

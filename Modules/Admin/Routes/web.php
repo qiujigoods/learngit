@@ -22,6 +22,10 @@ Route::any('admin/out', 'AdminController@out');
 Route::any('role/add', 'RoleController@add');
 Route::any('menu/index', 'MenuController@index');
 Route::any('menu/upMenu', 'MenuController@upMenu');
+Route::post('menu/upMenuDo', 'MenuController@upMenuDo');
+Route::post('menu/delOne', 'MenuController@delOne');
+Route::any('menu/add', 'MenuController@add');
+Route::post('menu/doAdd', 'MenuController@doAdd');
 
 
 Route::any('brand/index','BrandController@index');
