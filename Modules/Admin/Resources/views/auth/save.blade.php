@@ -22,36 +22,47 @@
   
   <body>
     <div class="x-body">
-        <form action="add" method="post">
+        <form action="save" method="post">
+          <input type="hidden" value="{{$data->id}}" name="id">
           <div class="layui-form-item">
               <label for="username" class="layui-form-label">
-                  <span class="x-red">*</span>角色名称
+                  <span class="x-red">*</span>权限名称
               </label>
               <div class="layui-input-inline">
-                  <input type="text" id="username" name="role_name" required="" lay-verify="required"
+                  <input type="text" name="node_name" value="{{$data->node_name}}" required="" lay-verify="required"
                   autocomplete="off" class="layui-input">
               </div>
               <div class="layui-form-mid layui-word-aux">
-                  <span class="x-red">*</span>每个角色名唯一
+                  <span class="x-red">*</span>权限名称唯一
               </div>
           </div>
           <div class="layui-form-item">
               <label for="phone" class="layui-form-label">
-                  <span class="x-red">*</span>描述
+                  <span class="x-red">*</span>权限控制器
               </label>
               <div class="layui-input-inline">
-                  <input type="text" id="phone" name="desc" required="" lay-verify="phone"
-                  autocomplete="off" class="layui-input">
+                  <input type="text" name="node_controllers" value="{{$data->node_controllers}}" required="" autocomplete="off" class="layui-input">
               </div>
               <div class="layui-form-mid layui-word-aux">
-                  <span class="x-red">*</span>对该角色进行解释
+                  <span class="x-red">*</span>控制器
+              </div>
+          </div>
+          <div class="layui-form-item">
+              <label for="phone" class="layui-form-label">
+                  <span class="x-red">*</span>权限方法
+              </label>
+              <div class="layui-input-inline">
+                  <input type="text" name="node_action" value="{{$data->node_action}}" required="" autocomplete="off" class="layui-input">
+              </div>
+              <div class="layui-form-mid layui-word-aux">
+                  <span class="x-red">*</span>方法
               </div>
           </div>
           <div class="layui-form-item">
               <label for="L_repass" class="layui-form-label">
               </label>
               <button  class="layui-btn" lay-filter="add" lay-submit="">
-                  添加
+                  修改
               </button>
           </div>
       </form>
@@ -61,21 +72,6 @@
             $ = layui.jquery;
           var form = layui.form
           ,layer = layui.layer;
-        
-          //自定义验证规则
-          form.verify({
-            nikename: function(value){
-              if(value.length < 5){
-                return '昵称至少得5个字符啊';
-              }
-            }
-            ,pass: [/(.+){6,12}$/, '密码必须6到12位']
-            ,repass: function(value){
-                if($('#L_pass').val()!=$('#L_repass').val()){
-                    return '两次密码不一致';
-                }
-            }
-          });
 
           //监听提交
           // form.on('submit(add)', function(data){

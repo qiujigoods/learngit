@@ -22,36 +22,82 @@
   
   <body>
     <div class="x-body">
-        <form action="add" method="post">
+        <form action="save" method="post">
+          <input type="hidden" name="id" value="{{$data->id}}">
           <div class="layui-form-item">
               <label for="username" class="layui-form-label">
-                  <span class="x-red">*</span>角色名称
+                  <span class="x-red">*</span>登录名
               </label>
               <div class="layui-input-inline">
-                  <input type="text" id="username" name="role_name" required="" lay-verify="required"
-                  autocomplete="off" class="layui-input">
+                  <input type="text" id="username" name="admin_name" value="{{$data->admin_name}}" required="" lay-verify="required"
+                  autocomplete="off"  class="layui-input">
               </div>
               <div class="layui-form-mid layui-word-aux">
-                  <span class="x-red">*</span>每个角色名唯一
+                  <span class="x-red">*</span>将会成为您唯一的登入名
               </div>
           </div>
           <div class="layui-form-item">
               <label for="phone" class="layui-form-label">
-                  <span class="x-red">*</span>描述
+                  <span class="x-red">*</span>手机
               </label>
               <div class="layui-input-inline">
-                  <input type="text" id="phone" name="desc" required="" lay-verify="phone"
+                  <input type="text" id="phone" name="phone" value="{{$data->phone}}" required="" lay-verify="phone"
                   autocomplete="off" class="layui-input">
               </div>
               <div class="layui-form-mid layui-word-aux">
-                  <span class="x-red">*</span>对该角色进行解释
+                  <span class="x-red">*</span>将会成为您唯一的登入名
+              </div>
+          </div>
+          <div class="layui-form-item">
+              <label for="L_email" class="layui-form-label">
+                  <span class="x-red">*</span>邮箱
+              </label>
+              <div class="layui-input-inline">
+                  <input type="text" id="L_email" name="email" value="{{$data->email}}" required="" lay-verify="email"
+                  autocomplete="off" class="layui-input">
+              </div>
+              <div class="layui-form-mid layui-word-aux">
+                  <span class="x-red">*</span>
+              </div>
+          </div>
+          <div class="layui-form-item">
+              <label for="L_email" class="layui-form-label">
+                  <span class="x-red">*</span>昵称
+              </label>
+              <div class="layui-input-inline">
+                  <input type="text" id="L_email" name="nickname" value="{{$data->nickname}}" required="" lay-verify="email"
+                  autocomplete="off" class="layui-input">
+              </div>
+              <div class="layui-form-mid layui-word-aux">
+                  <span class="x-red">*</span>
+              </div>
+          </div>
+          <div class="layui-form-item">
+              <label for="L_pass" class="layui-form-label">
+                  <span class="x-red">*</span>密码
+              </label>
+              <div class="layui-input-inline">
+                  <input type="password" id="L_pass" name="password" value="{{$data->password}}" required="" lay-verify="pass"
+                  autocomplete="off" class="layui-input">
+              </div>
+              <div class="layui-form-mid layui-word-aux">
+                  6到16个字符
+              </div>
+          </div>
+          <div class="layui-form-item">
+              <label for="L_repass" class="layui-form-label">
+                  <span class="x-red">*</span>确认密码
+              </label>
+              <div class="layui-input-inline">
+                  <input type="password" id="L_repass" required="" lay-verify="repass"
+                  autocomplete="off" class="layui-input">
               </div>
           </div>
           <div class="layui-form-item">
               <label for="L_repass" class="layui-form-label">
               </label>
               <button  class="layui-btn" lay-filter="add" lay-submit="">
-                  添加
+                  修改
               </button>
           </div>
       </form>
@@ -86,8 +132,6 @@
           //       var index = parent.layer.getFrameIndex(window.name);
           //       //关闭当前frame
           //       parent.layer.close(index);
-          //       // 可以对父窗口进行刷新 
-          //       x_admin_father_reload();
           //   });
           //   return false;
           // });

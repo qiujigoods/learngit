@@ -22,36 +22,36 @@
   
   <body>
     <div class="x-body">
-        <form action="add" method="post">
+        <form action="definition" method="post">
+          <div class="layui-form-item">
+              <label for="username" class="layui-form-label">
+                  <span class="x-red">*</span>用户名称
+              </label>
+              <div class="layui-input-inline">
+                  <select id="shipping" name="admin_id" class="valid">
+                    <?php foreach ($admin as $k => $v): ?>
+                        <option value="{{$v->id}}">{{$v->admin_name}}</option>
+                    <?php endforeach ?>
+                  </select>
+              </div>
+          </div>
           <div class="layui-form-item">
               <label for="username" class="layui-form-label">
                   <span class="x-red">*</span>角色名称
               </label>
               <div class="layui-input-inline">
-                  <input type="text" id="username" name="role_name" required="" lay-verify="required"
-                  autocomplete="off" class="layui-input">
-              </div>
-              <div class="layui-form-mid layui-word-aux">
-                  <span class="x-red">*</span>每个角色名唯一
-              </div>
-          </div>
-          <div class="layui-form-item">
-              <label for="phone" class="layui-form-label">
-                  <span class="x-red">*</span>描述
-              </label>
-              <div class="layui-input-inline">
-                  <input type="text" id="phone" name="desc" required="" lay-verify="phone"
-                  autocomplete="off" class="layui-input">
-              </div>
-              <div class="layui-form-mid layui-word-aux">
-                  <span class="x-red">*</span>对该角色进行解释
+                  <select name="role_id">
+                    <?php foreach ($role as $k => $v): ?>
+                        <option value="{{$v->id}}">{{$v->role_name}}</option>
+                    <?php endforeach ?>
+                  </select>
               </div>
           </div>
           <div class="layui-form-item">
               <label for="L_repass" class="layui-form-label">
               </label>
               <button  class="layui-btn" lay-filter="add" lay-submit="">
-                  添加
+                  增加
               </button>
           </div>
       </form>
@@ -86,8 +86,6 @@
           //       var index = parent.layer.getFrameIndex(window.name);
           //       //关闭当前frame
           //       parent.layer.close(index);
-          //       // 可以对父窗口进行刷新 
-          //       x_admin_father_reload();
           //   });
           //   return false;
           // });

@@ -22,36 +22,32 @@
   
   <body>
     <div class="x-body">
-        <form action="add" method="post">
+        <form action="empower" method="post">
           <div class="layui-form-item">
               <label for="username" class="layui-form-label">
                   <span class="x-red">*</span>角色名称
               </label>
               <div class="layui-input-inline">
-                  <input type="text" id="username" name="role_name" required="" lay-verify="required"
-                  autocomplete="off" class="layui-input">
-              </div>
-              <div class="layui-form-mid layui-word-aux">
-                  <span class="x-red">*</span>每个角色名唯一
+                  <select name="role_id">
+                    <?php foreach ($role as $k => $v): ?>
+                        <option value="{{$v->id}}">{{$v->role_name}}</option>
+                    <?php endforeach ?>
+                  </select>
               </div>
           </div>
           <div class="layui-form-item">
-              <label for="phone" class="layui-form-label">
-                  <span class="x-red">*</span>描述
-              </label>
-              <div class="layui-input-inline">
-                  <input type="text" id="phone" name="desc" required="" lay-verify="phone"
-                  autocomplete="off" class="layui-input">
-              </div>
-              <div class="layui-form-mid layui-word-aux">
-                  <span class="x-red">*</span>对该角色进行解释
-              </div>
+              <label class="layui-form-label"><span class="x-red">*</span>权限</label>
+                <?php foreach ($auth as $k => $v): ?>
+                    <div class="layui-input-block">
+                          <input type="checkbox" name="{{$v->id}}" value="{{$v->id}}" title="">{{$v->node_name}}
+                    </div>
+                <?php endforeach ?>
           </div>
           <div class="layui-form-item">
               <label for="L_repass" class="layui-form-label">
               </label>
               <button  class="layui-btn" lay-filter="add" lay-submit="">
-                  添加
+                  增加
               </button>
           </div>
       </form>
@@ -82,10 +78,9 @@
           //   console.log(data);
           //   //发异步，把数据提交给php
           //   layer.alert("增加成功", {icon: 6},function () {
-          //       // 获得frame索引
-          //       var index = parent.layer.getFrameIndex(window.name);
           //       //关闭当前frame
-          //       parent.layer.close(index);
+          //       x_admin_close();
+
           //       // 可以对父窗口进行刷新 
           //       x_admin_father_reload();
           //   });

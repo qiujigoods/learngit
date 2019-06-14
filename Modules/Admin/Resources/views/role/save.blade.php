@@ -22,13 +22,14 @@
   
   <body>
     <div class="x-body">
-        <form action="add" method="post">
+        <form action="save" method="post">
+          <input type="hidden" name="id" value="{{$data->id}}">
           <div class="layui-form-item">
               <label for="username" class="layui-form-label">
                   <span class="x-red">*</span>角色名称
               </label>
               <div class="layui-input-inline">
-                  <input type="text" id="username" name="role_name" required="" lay-verify="required"
+                  <input type="text" id="username" name="role_name" value="{{$data->role_name}}" required="" lay-verify="required"
                   autocomplete="off" class="layui-input">
               </div>
               <div class="layui-form-mid layui-word-aux">
@@ -40,7 +41,7 @@
                   <span class="x-red">*</span>描述
               </label>
               <div class="layui-input-inline">
-                  <input type="text" id="phone" name="desc" required="" lay-verify="phone"
+                  <input type="text" id="phone" name="desc" value="{{$data->desc}}" required="" lay-verify="phone"
                   autocomplete="off" class="layui-input">
               </div>
               <div class="layui-form-mid layui-word-aux">
@@ -51,7 +52,7 @@
               <label for="L_repass" class="layui-form-label">
               </label>
               <button  class="layui-btn" lay-filter="add" lay-submit="">
-                  添加
+                  修改
               </button>
           </div>
       </form>
@@ -86,8 +87,6 @@
           //       var index = parent.layer.getFrameIndex(window.name);
           //       //关闭当前frame
           //       parent.layer.close(index);
-          //       // 可以对父窗口进行刷新 
-          //       x_admin_father_reload();
           //   });
           //   return false;
           // });

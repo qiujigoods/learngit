@@ -25,33 +25,78 @@
         <form action="add" method="post">
           <div class="layui-form-item">
               <label for="username" class="layui-form-label">
-                  <span class="x-red">*</span>角色名称
+                  <span class="x-red">*</span>登录名
               </label>
               <div class="layui-input-inline">
-                  <input type="text" id="username" name="role_name" required="" lay-verify="required"
+                  <input type="text" id="username" name="admin_name" required="" lay-verify="required"
                   autocomplete="off" class="layui-input">
               </div>
               <div class="layui-form-mid layui-word-aux">
-                  <span class="x-red">*</span>每个角色名唯一
+                  <span class="x-red">*</span>将会成为您唯一的登入名
               </div>
           </div>
           <div class="layui-form-item">
               <label for="phone" class="layui-form-label">
-                  <span class="x-red">*</span>描述
+                  <span class="x-red">*</span>手机
               </label>
               <div class="layui-input-inline">
-                  <input type="text" id="phone" name="desc" required="" lay-verify="phone"
+                  <input type="text" id="phone" name="phone" required="" lay-verify="phone"
                   autocomplete="off" class="layui-input">
               </div>
               <div class="layui-form-mid layui-word-aux">
-                  <span class="x-red">*</span>对该角色进行解释
+                  <span class="x-red">*</span>将会成为您唯一的登入名
+              </div>
+          </div>
+          <div class="layui-form-item">
+              <label for="L_email" class="layui-form-label">
+                  <span class="x-red">*</span>邮箱
+              </label>
+              <div class="layui-input-inline">
+                  <input type="text" id="L_email" name="email" required="" lay-verify="email"
+                  autocomplete="off" class="layui-input">
+              </div>
+              <div class="layui-form-mid layui-word-aux">
+                  <span class="x-red">*</span>
+              </div>
+          </div>
+          <div class="layui-form-item">
+              <label for="L_email" class="layui-form-label">
+                  <span class="x-red">*</span>昵称
+              </label>
+              <div class="layui-input-inline">
+                  <input type="text" id="" name="nickname" required="" lay-verify="nickname"
+                  autocomplete="off" class="layui-input">
+              </div>
+              <div class="layui-form-mid layui-word-aux">
+                  <span class="x-red">*</span>
+              </div>
+          </div>
+          <div class="layui-form-item">
+              <label for="L_pass" class="layui-form-label">
+                  <span class="x-red">*</span>密码
+              </label>
+              <div class="layui-input-inline">
+                  <input type="password" id="L_pass" name="password" required="" lay-verify="pass"
+                  autocomplete="off" class="layui-input">
+              </div>
+              <div class="layui-form-mid layui-word-aux">
+                  6到16个字符
+              </div>
+          </div>
+          <div class="layui-form-item">
+              <label for="L_repass" class="layui-form-label">
+                  <span class="x-red">*</span>确认密码
+              </label>
+              <div class="layui-input-inline">
+                  <input type="password" id="L_repass" required="" lay-verify="repass"
+                  autocomplete="off" class="layui-input">
               </div>
           </div>
           <div class="layui-form-item">
               <label for="L_repass" class="layui-form-label">
               </label>
-              <button  class="layui-btn" lay-filter="add" lay-submit="">
-                  添加
+              <button  class="layui-btn" lay-submit="">
+                  增加
               </button>
           </div>
       </form>
