@@ -40,11 +40,11 @@
         </ul>
         <ul class="layui-nav right" lay-filter="">
           <li class="layui-nav-item">
-            <a href="javascript:;"><?php echo session()->get('admin_name'); ?></a>
+            <a href="javascript:;">admin</a>
             <dl class="layui-nav-child"> <!-- 二级菜单 -->
               <dd><a onclick="x_admin_show('个人信息','http://www.baidu.com')">个人信息</a></dd>
               <dd><a onclick="x_admin_show('切换帐号','http://www.baidu.com')">切换帐号</a></dd>
-              <dd><a href="{{url('admin/out')}}">退出</a></dd>
+              <dd><a href="../login.html">退出</a></dd>
             </dl>
           </li>
           <li class="layui-nav-item to-index"><a href="/">前台首页</a></li>
@@ -68,7 +68,7 @@
                 <?php if($v->id == $value->parent_id) { ?>
                 <ul class="sub-menu">
                     <li>
-                        <a _href="{{url($value->url)}}">
+                        <a _href="<?php echo e(url($value->url)); ?>">
                             <i class="iconfont">&#xe6a7;</i>
                             <cite><?php echo $value->name; ?></cite>
                         </a>
@@ -98,7 +98,7 @@
           </div>
           <div class="layui-tab-content">
             <div class="layui-tab-item layui-show">
-                <iframe src='welcome' frameborder="0" scrolling="yes" class="x-iframe"></iframe>
+                <iframe src='../welcome.html' frameborder="0" scrolling="yes" class="x-iframe"></iframe>
             </div>
           </div>
           <div id="tab_show"></div>
@@ -123,4 +123,4 @@
     })();
     </script>
 </body>
-</html>
+</html><?php /**PATH D:\laragon\www\shop\Modules\Admin\Providers/../Resources/views/login/index.blade.php ENDPATH**/ ?>

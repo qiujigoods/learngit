@@ -6,6 +6,7 @@ use App\User;
 use App\Http\Request;
 use App\Http\Controllers\Controller;
 use DB;
+use Illuminate\Support\Facades\Session;
 
 class AdminController extends Controller
 {
@@ -32,13 +33,22 @@ class AdminController extends Controller
                                 ->where('password', md5($data['password']))
                                 ->where('is_del', '0')
                                 ->first();
+
+            $admin_name = $res->admin_name;
             if($res){
+                session(['admin_name' => $admin_name]);
                 return redirect('admin/home');
             }else{
                 echo "账号或密码错误";die;
             }
         }
         
+    }
+
+    public function out()
+    {
+        session()->forget('admin_name');
+        return redirect('admin');
     }
 
     public function home()
@@ -50,6 +60,11 @@ class AdminController extends Controller
         $data =  DB::table('menu')->get();        
       
         return view('admin::login/index',['res'=>$res,'data'=>$data]);
+    }
+
+    public function welcome()
+    {
+        return view('admin::login/welcome');
     }
 
 
