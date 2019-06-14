@@ -40,11 +40,11 @@
         </ul>
         <ul class="layui-nav right" lay-filter="">
           <li class="layui-nav-item">
-            <a href="javascript:;">admin</a>
+            <a href="javascript:;"><?php echo session()->get('admin_name'); ?></a>
             <dl class="layui-nav-child"> <!-- 二级菜单 -->
               <dd><a onclick="x_admin_show('个人信息','http://www.baidu.com')">个人信息</a></dd>
               <dd><a onclick="x_admin_show('切换帐号','http://www.baidu.com')">切换帐号</a></dd>
-              <dd><a href="../login.html">退出</a></dd>
+              <dd><a href="<?php echo e(url('admin/out')); ?>">退出</a></dd>
             </dl>
           </li>
           <li class="layui-nav-item to-index"><a href="/">前台首页</a></li>
@@ -98,7 +98,7 @@
           </div>
           <div class="layui-tab-content">
             <div class="layui-tab-item layui-show">
-                <iframe src='../welcome.html' frameborder="0" scrolling="yes" class="x-iframe"></iframe>
+                <iframe src='welcome' frameborder="0" scrolling="yes" class="x-iframe"></iframe>
             </div>
           </div>
           <div id="tab_show"></div>

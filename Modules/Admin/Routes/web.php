@@ -18,7 +18,6 @@ Route::any('admin/welcome', 'AdminController@welcome');
 Route::any('admin/login', 'AdminController@login');
 Route::any('admin/home', 'AdminController@home');
 
-<<<<<<< HEAD
 //权限限制
 // Route::any('rbac/index', 'RbacController@index');
 
@@ -41,7 +40,6 @@ Route::any('auth/add', 'AuthController@add')->middleware('rbac');
 Route::any('auth/del', 'AuthController@del')->middleware('rbac');
 Route::any('auth/save', 'AuthController@save')->middleware('rbac');
 Route::any('auth/empower', 'AuthController@empower')->middleware('rbac');
-=======
 Route::any('role/add', 'RoleController@add');
 Route::any('admin/out', 'AdminController@out');
 
@@ -81,4 +79,3 @@ Route::any('customer/comment','CustomerController@comment');
 Route::any('customer/feedback','CustomerController@feedback');
 Route::any('customer/reply','CustomerController@reply');
 Route::any('customer/status','CustomerController@status');
->>>>>>> 3654bc442b03bede1044bfdeb1135d51f00dc966
