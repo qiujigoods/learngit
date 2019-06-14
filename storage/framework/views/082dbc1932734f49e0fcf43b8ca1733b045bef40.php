@@ -23,18 +23,33 @@
   
   <body>
     <div class="x-body">
-        <form action="type/doUpdate" method="post">
-          <input type="hidden" name="id" value="<?php echo $res->id ?>">
+        <form action="type/doAdd" method="post">
           <div class="layui-form-item">
               <label for="name" class="layui-form-label">
                   <span class="x-red">*</span>分类名称
               </label>
               <div class="layui-input-inline">
                   <input type="text" id="name" name="name" required="" lay-verify="required"
-                  autocomplete="off" value="<?php echo $res->name?>" class="layui-input">
+                  autocomplete="off" class="layui-input">
               </div>
               <div class="layui-form-mid layui-word-aux">
-                  <span class="x-red">*</span>请输入您要修改的分类名称
+                  <span class="x-red">*</span>请输入您要添加的分类
+              </div>
+          </div>
+          <div class="layui-form-item">
+              <label for="parent_id" class="layui-form-label">
+                  <span class="x-red">*</span>父级分类
+              </label>
+              <div class="layui-input-inline">
+                  <select name="parent_id">
+					<option value="0">--顶级分类--</option>
+			<?php $__currentLoopData = $typeList; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $k => $v): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+				<option value="<?php echo e($v->id); ?>"><?php echo e(str_repeat('——',$v->level)); ?><?php echo e($v->name); ?></option>
+			<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+			</select>
+              </div>
+              <div class="layui-form-mid layui-word-aux">
+                  <span class="x-red">*</span>他的上级分类
               </div>
           </div>
           <div class="layui-form-item">
@@ -42,7 +57,7 @@
                   <span class="x-red">*</span>SEO关键词
               </label>
               <div class="layui-input-inline">
-                  <input type="text" value="<?php echo $res->keywords?>" id="keywords" name="keywords" required="" lay-verify="phone"
+                  <input type="text" id="keywords" name="keywords" required="" lay-verify="required"
                   autocomplete="off" class="layui-input">
               </div>
               <div class="layui-form-mid layui-word-aux">
@@ -54,11 +69,11 @@
                   <span class="x-red">*</span>SEO描述
               </label>
               <div class="layui-input-inline">
-                  <input type="text" value="<?php echo $res->descript?>" id="descript" name="descript" required="" lay-verify="email"
+                  <input type="text" id="descript" name="descript" required="" lay-verify="required"
                   autocomplete="off" class="layui-input">
               </div>
               <div class="layui-form-mid layui-word-aux">
-                  <span class="x-red">*</span>请输入分类的SEO描述
+                  <span class="x-red">*</span>请输入SEO描述
               </div>
           </div>
           <div class="layui-form-item">
@@ -66,11 +81,11 @@
                   <span class="x-red">*</span>SEO标题
               </label>
               <div class="layui-input-inline">
-                  <input type="text" value="<?php echo $res->title?>" id="title" name="title" required="" lay-verify="email"
+                  <input type="text" id="title" name="title" required="" lay-verify="required"
                   autocomplete="off" class="layui-input">
               </div>
               <div class="layui-form-mid layui-word-aux">
-                  <span class="x-red">*</span>请输入分类的SEO标题
+                  <span class="x-red">*</span>请输入SEO标题
               </div>
           </div>
           <div class="layui-form-item">
@@ -85,20 +100,18 @@
                   <span class="x-red">*</span>排序
               </label>
               <div class="layui-input-inline">
-                  <input type="text" value="<?php echo $res->sort?>" id="sort" name="sort" required="" lay-verify="sort"
+                  <input type="text" id="sort" name="sort" required="" lay-verify="required"
                   autocomplete="off" class="layui-input">
               </div>
               <div class="layui-form-mid layui-word-aux">
-                  6到16个字符
+                  <span class="x-red">*</span>请输入分类排序,仅限数字
               </div>
           </div>
           <div class="layui-form-item">
               <label for="L_repass" class="layui-form-label">
               </label>
-              <!-- <button class="layui-btn layui-btn layui-btn-xs" type="text">修改</button> -->
-              <!-- <input type="submit" value="xiugai"> -->
-              <button  class="layui-btn clo" type="submit" lay-filter="add" lay-submit="">
-                  修改
+              <button  class="layui-btn" type="submit" lay-submit="">
+                  添加
               </button>
           </div>
       </form>
@@ -124,24 +137,20 @@
             }
           });
 
-          $(".clo").on('click',function(){
-            // alert(11);
-            var index = parent.layer.getFrameIndex(window.name);
-                parent.layer.close(index);
-          })
-
           //监听提交
-          // form.on('submit(add)', function(data){
-          //   console.log(data);
-          //   //发异步，把数据提交给php
-          //   layer.alert("修改成功", {icon: 6},function () {
-          //       // 获得frame索引
-          //       var index = parent.layer.getFrameIndex(window.name);
-          //       //关闭当前frame
-          //       parent.layer.close(index);
-          //   });
-          //   // return false;
-          // });
+          form.on('submit(add)', function(data){
+            console.log(data);
+            //发异步，把数据提交给php
+            layer.alert("增加成功", {icon: 6},function () {
+                // 获得frame索引
+                var index = parent.layer.getFrameIndex(window.name);
+                //关闭当前frame
+                parent.layer.close(index);
+                // 可以对父窗口进行刷新 
+                x_admin_father_reload();
+            });
+            // return false;
+          });
           
           
         });
@@ -154,4 +163,4 @@
       })();</script>
   </body>
 
-</html>
+</html><?php /**PATH D:\laragon\www\shop\Modules\Admin\Providers/../Resources/views/type/add.blade.php ENDPATH**/ ?>

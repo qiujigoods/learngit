@@ -126,7 +126,7 @@
 
           $(".clo").on('click',function(){
             // alert(11);
-            var index = parent.layer.getFrameIndex(window.name);
+            var index = parent.parent.layer.getFrameIndex(window.name);
                 parent.layer.close(index);
           })
 
@@ -154,4 +154,4 @@
       })();</script>
   </body>
 
-</html>
+</html><?php /**PATH D:\laragon\www\shop\Modules\Admin\Providers/../Resources/views/type/update.blade.php ENDPATH**/ ?>
