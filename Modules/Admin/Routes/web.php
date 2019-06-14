@@ -45,3 +45,4 @@ Route::any('customer/pass','CustomerController@pass');
 Route::any('customer/comment','CustomerController@comment');
 Route::any('customer/feedback','CustomerController@feedback');
 Route::any('customer/reply','CustomerController@reply');
+Route::any('customer/status','CustomerController@status');

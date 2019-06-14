@@ -54,4 +54,19 @@ class CustomerController extends Controller
 		//var_dump($res);die;					
 		return view('admin::customer/customer-reply',['res'=>$res]);
 	}
+
+	public function status()
+	{
+		$data = request()->post();
+
+		if($data['title']=='启用'){
+			$res = DB::table('comment')->where('id',$data['id'])->update(['status'=>'0']);
+			//var_dump($res);
+			return 0;
+		}else if($data['title']=='停用'){
+			$res = DB::table('comment')->where('id',$data['id'])->update(['status'=>'1']);
+			//var_dump($res);
+			return 1;
+		}
+	}
 }

@@ -75,10 +75,17 @@
                   <td>未回复</td>
                   <td>未回复</td>
               <?php } ?>
-              <td class="td-status">
-                <span class="layui-btn layui-btn-normal layui-btn-mini">已启用</span></td>
-              <td class="td-manage">
-                <a onclick="member_stop(this,'10001')" href="javascript:;"  title="启用">
+
+              <?php if($v->status==1){  ?>
+                  <td class="td-status">
+                    <span class="layui-btn layui-btn-normal layui-btn-mini">启用</span></td>
+                  <td class="td-manage">
+              <?php }else if($v->status==0){  ?>
+                  <td class="td-status">
+                      <span class="layui-btn layui-btn-normal layui-btn-mini">停用</span></td>
+                  <td class="td-manage">
+              <?php } ?>
+                <a onclick="member_stop(this)" id="<?php echo $v->id; ?>" href="javascript:;"  title="启用">
                   <i class="layui-icon">&#xe601;</i>
                 </a>
                 <a title="回复"  onclick='x_admin_show("回复","comment?id=<?php echo $v->id; ?>",600,400)' href="javascript:;">
@@ -118,7 +125,19 @@
       function member_stop(obj,id){
           layer.confirm('确认要停用吗？',function(index){
 
-              if($(obj).attr('title')=='启用'){
+            var title = $(obj).attr('title');
+            var id = $(obj).attr('id');
+            $.ajax({
+              url:'status',
+              type:'post',
+              data:{title:title,id:id},
+              dataType:'json',
+              success:function(e){
+                console.log(e);
+              }
+
+            })
+                if($(obj).attr('title')=='启用'){
 
                 //发异步把用户状态进行更改
                 $(obj).attr('title','停用')
