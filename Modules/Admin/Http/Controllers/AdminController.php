@@ -62,6 +62,11 @@ class AdminController extends Controller
         return view('admin::login/index',['res'=>$res,'data'=>$data]);
     }
 
+    public function welcome()
+    {
+        return view('admin::login/welcome');
+    }
+
 
     /**
      * Show the form for creating a new resource.
