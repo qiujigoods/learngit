@@ -35,11 +35,18 @@ Route::post('brand/brandUpdate','BrandController@brandUpdate');
 Route::any('type/index', 'TypeController@index');
 Route::any('type/add', 'TypeController@add');
 Route::any('type/doAdd', 'TypeController@doAdd');
-
 Route::any('type/updFl','TypeController@updFl');
 Route::any('type/doUpdate','TypeController@doUpdate');
-
 Route::any('type/delFl','TypeController@delFl');
+
+Route::any('active/add','ActiveController@add');
+Route::any('active/doAdd','ActiveController@doAdd');
+Route::any('active/index','ActiveController@index');
+Route::any('active/del','ActiveController@del');
+Route::any('active/upd','ActiveController@upd');
+Route::any('active/doUpd','ActiveController@doUpd');
+
+
 
 Route::any('customer/pass','CustomerController@pass');
 Route::any('customer/comment','CustomerController@comment');
