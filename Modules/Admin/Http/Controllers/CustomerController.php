@@ -34,4 +34,24 @@ class CustomerController extends Controller
 			return view('admin::customer/customer-add');
 		}
 	}
+
+	public function feedback()
+	{
+		$res = DB::table('comment')
+							->join('goods' ,'comment.goods_id' ,'=' ,'goods.id')
+							->join('user' ,'comment.user_id' ,'=' ,'user.id')
+							->paginate(10);
+		//var_dump($res);die;					
+		return view('admin::customer/customer-feedback',['res'=>$res]);
+	}
+
+	public function reply()
+	{
+		$res = DB::table('comment')
+							->join('seller' ,'comment.seller_id' ,'=' ,'seller.id')
+							->join('user' ,'comment.user_id' ,'=' ,'user.id')
+							->paginate(10);
+		//var_dump($res);die;					
+		return view('admin::customer/customer-reply',['res'=>$res]);
+	}
 }
