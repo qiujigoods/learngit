@@ -35,6 +35,13 @@ class Rbac
 
             $node = DB::table('node')->whereIn('id', $relations)->get();
 
+
+            $i = 0;
+            //判断
+            if (count($node) == $i) {
+                echo "无权限";die;
+            }
+
             //获取要执行的动作
             $url = \Route::current()->getActionName();
 
@@ -45,7 +52,7 @@ class Rbac
 
             foreach ($node as $k => $v) {
                 if ($v->node_controllers === $controller && $v->node_action === $action) {
-                    return redirect($controller/$action);
+                    break;
                 }
             }
         }
