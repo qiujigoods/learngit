@@ -22,9 +22,9 @@ class RbacController extends Controller
 
 		$admin_role = DB::table('admin_role')->where('admin_id', $id)->get();
 
-		$collection = $admin_role->first();
+		$object = $admin_role->first();
 		
-		$role_node = DB::table('role_node')->where('role_id', $collection->admin_id)->get();
+		$role_node = DB::table('role_node')->where('role_id', $object->role_id)->get();
 
 		$relations = [];
 

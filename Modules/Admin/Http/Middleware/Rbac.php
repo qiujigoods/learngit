@@ -25,7 +25,7 @@ class Rbac
 
             $object = $admin_role->first();
             
-            $role_node = DB::table('role_node')->where('role_id', $object->admin_id)->get();
+            $role_node = DB::table('role_node')->where('role_id', $object->role_id)->get();
 
             $relations = [];
 
