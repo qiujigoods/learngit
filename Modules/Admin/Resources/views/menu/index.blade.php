@@ -68,22 +68,24 @@
             </td>
             <td>{{$v->id}}</td>
             <td>
+              {{str_repeat("___",$v->level)}}{{$v->name}}
               <i class="layui-icon x-show" status='true'>&#xe623;</i>
-              {{$v->name}}
+
             </td>
             <td>{{$v->create_time}}</td>
-            <td>{{$v->save_time}}</td>
+            <td>{{date('Y-m-d H:i:s', $v->save_time)}}</td>
             <td>
-              <input type="checkbox" name="switch"  lay-text="开启|停用"  checked="" lay-skin="switch">
+              <?php if ($v->static==1){ echo '开启'; } else { echo '停用'; } ?>
             </td>
             <td class="td-manage">
-              <button class="layui-btn layui-btn layui-btn-xs"  onclick="x_admin_show('编辑','menu/upMenu')" ><i class="layui-icon">&#xe642;</i>编辑</button>
-              <button class="layui-btn layui-btn-warm layui-btn-xs"  onclick="x_admin_show('编辑','admin-edit.html')" ><i class="layui-icon">&#xe642;</i>添加子栏目</button>
-              <button class="layui-btn-danger layui-btn layui-btn-xs"  onclick="member_del(this,'要删除的id')" href="javascript:;" ><i class="layui-icon">&#xe640;</i>删除</button>
+              <button class="layui-btn layui-btn layui-btn-xs"  onclick="x_admin_show('编辑','upMenu?id=<?php echo $v->id ?>')" ><i class="layui-icon">&#xe642;</i>编辑</button>
+              @if($v->parent_id == 0)
+                <button class="layui-btn layui-btn-warm layui-btn-xs"  onclick="x_admin_show('编辑','addSon?id=<?php echo $v->id ?>')" ><i class="layui-icon">&#xe642;</i>添加子栏目</button>
+              @endif
+              <button class="layui-btn-danger layui-btn layui-btn-xs"  onclick="member_del('<?php echo $v->id ?>', '要删除的id')" href="javascript:;" ><i class="layui-icon">&#xe640;</i>删除</button>
             </td>
           </tr>
           <?php } ?>
-
           
           
         </tbody>
@@ -102,8 +104,14 @@
 
       /*用户-删除*/
       function member_del(obj,id){
+          // if(confirm('确定?')){
+          //
+          // }else{
+          //     alert('bu');
+          // }
           layer.confirm('确认要删除吗？',function(index){
               //发异步删除数据
+              $.post('delOne', {'id':obj});
               $(obj).parents("tr").remove();
               layer.msg('已删除!',{icon:1,time:1000});
           });

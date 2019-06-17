@@ -53,6 +53,26 @@ class AdminController extends Controller
 
     public function home()
     {
+        //判断session中是否存在用户信息
+        // if (request()->Session()->has('info')) {
+        //     // 获取用户信息
+        //     $info = request()->Session()->get('info');
+
+        //     $admin_role = DB::table('admin_role')->where('admin_id', $id)->get();
+
+        //     $object = $admin_role->first();
+            
+        //     $role_menu = DB::table('role_menu')->where('role_id', $object->role_id)->get();
+
+        //     $relations = [];
+
+        //     foreach ($role_menu as $k => $v) {
+        //         $relations[] = $v->menu_id;
+        //     }
+
+        //     $node = DB::table('menu')->whereIn('id', $relations)->get();
+        // }
+
         $res = DB::table('menu')
                             ->where('parent_id','=',0)
                             ->get();
@@ -60,6 +80,11 @@ class AdminController extends Controller
         $data =  DB::table('menu')->get();        
       
         return view('admin::login/index',['res'=>$res,'data'=>$data]);
+    }
+
+    public function welcome()
+    {
+        return view('admin::login/welcome');
     }
 
 
