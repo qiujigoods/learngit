@@ -79,3 +79,9 @@ Route::any('customer/comment','CustomerController@comment');
 Route::any('customer/feedback','CustomerController@feedback');
 Route::any('customer/reply','CustomerController@reply');
 Route::any('customer/status','CustomerController@status');
+
+Route::any('order/index','OrderController@index');
+Route::any('order/details','OrderController@details');
+Route::any('order/statusindex','OrderController@statusindex');
+Route::any('order/statusDel','OrderController@statusDel');
+Route::any('order/statusUpdate','OrderController@statusUpdate');
