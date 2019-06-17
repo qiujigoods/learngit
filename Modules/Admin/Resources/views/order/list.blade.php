@@ -46,7 +46,7 @@
               <div class="layui-unselect header layui-form-checkbox" lay-skin="primary"><i class="layui-icon">&#xe605;</i></div>
             </th>
             <th>商品编号</th>
-            <th>用户名</th>
+            <th>收货人</th>
             <th>实付金额</th> 
             <th>下单时间</th>            
             <th>操作</th></tr>
@@ -58,7 +58,7 @@
                 <div class="layui-unselect layui-form-checkbox" lay-skin="primary" data-id='2'><i class="layui-icon">&#xe605;</i></div>
               </td>
               <td><?php echo $v->order_no; ?></td>
-              <td><?php echo $v->username; ?></td>
+              <td><?php echo $v->accept_name; ?></td>
               <td><?php echo $v->real_freight; ?></td>
               <td><?php echo $v->create_time; ?></td>
               <td>

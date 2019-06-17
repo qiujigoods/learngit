@@ -46,7 +46,7 @@
                   收货名称：
               </label>
               <div class="layui-input-inline">
-                  <input type="text" required="" disabled="" autocomplete="off" class="layui-input" value="<?php echo $res->username; ?>">
+                  <input type="text" required="" disabled="" autocomplete="off" class="layui-input" value="<?php echo $res->accept_name; ?>">
               </div>
           </div>
           <div class="layui-form-item">
