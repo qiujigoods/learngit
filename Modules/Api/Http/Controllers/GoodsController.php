@@ -24,26 +24,29 @@ class GoodsController extends Controller
 	public function detail()
 	{
 		if (request()->isMethod('get')) {
-
 			$id = request()->input('id');
 
-			$detail = DB::table('goods')->where('id', $id)->find();
+			$check = $this->check();
 
-			if ($detail) {
-				return json_encode(array(['code'=>1, 'msg'=>'获取商品详情成功', 'result'=>$detail]));
+			if ($check) {
+				$detail = DB::table('goods')->where('id', $id)->find();
+
+				if ($detail) {
+					return json_encode(array(['code'=>1, 'msg'=>'获取商品详情成功', 'result'=>$detail]));
+				}
+
+				retrun json_encode(array(['code'=>0, 'msg'=>'获取商品详情失败']));
 			}
 
-			retrun json_encode(array(['code'=>0, 'msg'=>'获取商品详情失败']));
-
+			return json_encode(array(['code'=>0, 'msg'=>'验证用户信息失败']));
 		}
-		return json_encode(array(['code'=>0, 'msg'=>'请求失败']));
 	}
 
 	//加入购物车
 	public function join()
 	{
-		if (request()->isMethod('get')) {
-			$data = request()->input('content');
+		if (request()->isMethod('post')) {
+			$data = request()->post();
 
 			$check = $this->$check();
 
@@ -58,7 +61,7 @@ class GoodsController extends Controller
 				return json_encode(array(['code'=>0, 'msg'=>'加入购物车失败']));
 			}
 
-			return json_encode(array(['code'=>0, 'msg'=>'用户信息获取失败']));
+			return json_encode(array(['code'=>0, 'msg'=>'验证用户信息失败']));
 		}
 	}
 
@@ -81,7 +84,7 @@ class GoodsController extends Controller
 				return json_encode(array(['code'=>0, 'msg'=>'收藏失败']));
 			}
 
-			return json_encode(array(['code'=>0, 'msg'=>'用户信息获取失败']));
+			return json_encode(array(['code'=>0, 'msg'=>'验证用户信息失败']));
 		}
 	}
 
@@ -104,12 +107,12 @@ class GoodsController extends Controller
 				return json_encode(array(['code'=>0, 'msg'=>'立即购买失败']));
 			}
 
-			return json_encode(array(['code'=>0, 'msg'=>'用户信息获取失败']));
+			return json_encode(array(['code'=>0, 'msg'=>'验证用户信息失败']));
 		}
 	}
 
 	//购物车列表
-	public function index()
+	public function goodlist()
 	{
 		if (request()->isMethod('get')) {
 			$check = $this->$check();
@@ -124,7 +127,7 @@ class GoodsController extends Controller
 				return json_encode(array(['code'=>0, 'msg'=>'获取列表失败']));
 			}
 
-			return json_encode(array(['code'=>0, 'msg'=>'用户信息获取失败']));
+			return json_encode(array(['code'=>0, 'msg'=>'验证用户信息失败']));
 		}
 	}
 
@@ -150,7 +153,7 @@ class GoodsController extends Controller
 				}
 			}
 
-			return json_encode(array(['code'=>0, 'msg'=>'用户信息获取失败']));
+			return json_encode(array(['code'=>0, 'msg'=>'验证用户信息失败']));
 		}
 	}
 
@@ -172,7 +175,7 @@ class GoodsController extends Controller
 				return json_encode(array(['code'=>0, 'msg'=>'删除失败']));
 			}
 
-			return json_encode(array(['code'=>0, 'msg'=>'用户信息获取失败']));
+			return json_encode(array(['code'=>0, 'msg'=>'验证用户信息失败']));
 		}
 	}
 
@@ -185,7 +188,7 @@ class GoodsController extends Controller
 			$check = $this->$check();
 
 			if ($check) {
-				$data = DB::table('goods_car')->where('user_id', $check['result']->user_id)->where('rid', $data['rid'])->update(['unselected'=>$data['unselected']]);
+				$data = DB::table('goods_car')->where('user_id', $check['result']->user_id)->where('rid', $data['rid'])->update(['num'=>$data['num']]);
 
 				if ($data) {
 					return json_encode(array(['code'=>1, 'msg'=>'修改数量成功']));
@@ -194,15 +197,23 @@ class GoodsController extends Controller
 				return json_encode(array(['code'=>0, 'msg'=>'修改数量失败']));
 			}
 
-			return json_encode(array(['code'=>0, 'msg'=>'用户信息获取失败']));
+			return json_encode(array(['code'=>0, 'msg'=>'验证用户信息失败']));
 		}
 	} 
 
-	//调用支付宝支付接口
-	public function pay()
+	//下单接口
+	public function true()
 	{
-		$url = 'https://openapi.alipay.com/gateway.do';
+		if (condition) {
+			# code...
+		}
 	}
+
+	//调用第三方接口支付接口
+	// public function pay()
+	// {
+	// 	$url = 'https://openapi.alipay.com/gateway.do';
+	// }
 
 	//token验证
 	public function check()
