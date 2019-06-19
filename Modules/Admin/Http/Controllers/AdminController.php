@@ -22,21 +22,13 @@ class AdminController extends Controller
     public function login()
     {
         if(request()->isMethod('post')){
+
             $data = request()->post();
-            if($data['luotest_response']==''){
-                 echo "验证错误123";die;
-            }
 
-            //var_dump($data['password']);die;
-            $res  = DB::table("admin")
-                                ->where('admin_name', $data['admin_name'])
-                                ->where('password', md5($data['password']))
-                                ->where('is_del', '0')
-                                ->first();
+            $res  = DB::table("admin")->where('email', $data['email'])->where('password', md5($data['password']))->where('is_del', '0')->first();
 
-            $admin_name = $res->admin_name;
             if($res){
-                session(['admin_name' => $admin_name]);
+                session(['info' => $res]);
                 return redirect('admin/home');
             }else{
                 echo "账号或密码错误";die;
@@ -70,7 +62,7 @@ class AdminController extends Controller
         //         $relations[] = $v->menu_id;
         //     }
 
-        //     $node = DB::table('menu')->whereIn('id', $relations)->get();
+        //     $menu = DB::table('menu')->whereIn('id', $relations)->get();
         // }
 
         $res = DB::table('menu')
