@@ -44,7 +44,7 @@ class AdminController extends Controller
     }
 
     public function home()
-    {
+    { 
         //判断session中是否存在用户信息
         // if (request()->Session()->has('info')) {
         //     // 获取用户信息
