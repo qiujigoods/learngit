@@ -69,7 +69,7 @@ class MenuController extends Controller
     public function add()
     {
         $data = Menu::ShowType();
-        echo '<pre/>';
+        // echo '<pre/>';
 //        var_dump($data);die;
         return view('admin::menu/add', ['data' => $data]);
     }

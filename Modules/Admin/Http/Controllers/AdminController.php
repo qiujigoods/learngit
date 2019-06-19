@@ -3,7 +3,7 @@
 namespace Modules\Admin\Http\Controllers;
 
 use App\User;
-use App\Http\Request;
+use Illuminate\Support\Facades\Request;
 use App\Http\Controllers\Controller;
 use DB;
 use Illuminate\Support\Facades\Session;
@@ -53,6 +53,7 @@ class AdminController extends Controller
 
     public function home()
     {
+        echo Request::path();
         //判断session中是否存在用户信息
         // if (request()->Session()->has('info')) {
         //     // 获取用户信息
