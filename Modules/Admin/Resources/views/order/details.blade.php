@@ -145,6 +145,7 @@
                   <input type="text" required="" disabled="" autocomplete="off" class="layui-input" value="<?php echo $res->send_time; ?>">
               </div>
           </div>
+          <a href="orderUserUpdate?id=<?php echo $res->id?>" style="margin-left: 300px;"><button class="layui-btn layui-btn layui-btn-xs"><i class="layui-icon">&#xe642;</i>用户信息编辑</button></a>
       </table>
   
     </div>

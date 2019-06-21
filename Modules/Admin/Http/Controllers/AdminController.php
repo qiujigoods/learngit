@@ -27,16 +27,15 @@ class AdminController extends Controller
                  echo "验证错误123";die;
             }
 
-            //var_dump($data['password']);die;
+            //var_dump($data);die;
             $res  = DB::table("admin")
-                                ->where('admin_name', $data['admin_name'])
+                                ->where('email', $data['email'])
                                 ->where('password', md5($data['password']))
                                 ->where('is_del', '0')
                                 ->first();
-
-            $admin_name = $res->admin_name;
+            //var_dump($data);die;
             if($res){
-                session(['admin_name' => $admin_name]);
+                session(['info' => $res]);
                 return redirect('admin/home');
             }else{
                 echo "账号或密码错误";die;
@@ -47,7 +46,7 @@ class AdminController extends Controller
 
     public function out()
     {
-        session()->forget('admin_name');
+        session()->forget('info');
         return redirect('admin');
     }
 

@@ -63,4 +63,32 @@ class OrderController extends Controller
 		}
 	}
 
+	public function orderUserUpdate()
+	{
+		$id = $_GET['id'];
+		// echo $id;
+		$res = DB::table('order')->where('id',$id)->first();
+
+		return view('admin::order/userupdate',['res'=>$res]);
+	}
+
+	public function doUserUpdate()
+	{
+		$id = $_POST['id'];
+		$accept_name = $_POST['accept_name'];
+		$telphone = $_POST['telphone'];
+		$postscript = $_POST['postscript'];
+		$postcode = $_POST['postcode'];
+		$address = $_POST['address'];
+
+		$arr = array('id'=>$id,'accept_name'=>$accept_name,'telphone'=>$telphone,'postscript'=>$postscript,'postcode'=>$postcode,'address'=>$address);
+
+		$res = DB::table('order')->where(['id'=>$id])->update($arr);
+
+		if($res){
+			return redirect('order/index');
+		}
+		// echo $accept_name;
+	}
+
 }
