@@ -17,43 +17,47 @@ class Rbac
     public function handle(Request $request, Closure $next)
     {
         // 判断session中是否存在用户信息
-        if (request()->session()->has('info')) {
-            // 获取用户信息
-            $info = request()->session()->get('info');
+        if (!request()->session()->has('info')) {
+            echo "请登录";die;
+        }
+        echo "999";die;
 
-            $admin_role = DB::table('admin_role')->where('admin_id', $info->id)->get();
+        // 获取用户信息
+        $info = request()->session()->get('info');
 
-            $object = $admin_role->first();
-            
-            $role_node = DB::table('role_node')->where('role_id', $object->role_id)->get();
+        $admin_role = DB::table('admin_role')->where('admin_id', $info->id)->get();
 
-            $relations = [];
+        $object = $admin_role->first();
+        
+        $role_node = DB::table('role_node')->where('role_id', $object->role_id)->get();
 
-            foreach ($role_node as $k => $v) {
-                $relations[] = $v->node_id;
-            }
+        $relations = [];
 
-            $node = DB::table('node')->whereIn('id', $relations)->get();
+        foreach ($role_node as $k => $v) {
+            $relations[] = $v->node_id;
+        }
+
+        $node = DB::table('node')->whereIn('id', $relations)->get();
 
 
-            $i = 0;
-            //判断
-            if (count($node) == $i) {
-                echo "无权限";die;
-            }
+        $i = 0;
+        //判断
+        if (count($node) == $i) {
+            echo "无权限";die;
+        }
 
-            //获取要执行的动作
-            $url = \Route::current()->getActionName();
+        //获取要执行的动作
+        $url = \Route::current()->getActionName();
+        print_r($url);die;
 
-            $contro = strtolower(substr($url, strrpos($url, '\\')+1));
+        $contro = strtolower(substr($url, strrpos($url, '\\')+1));
 
-            $controller = substr($contro, 0, strrpos($contro, 'controller'));
-            $action = substr($contro, strpos($contro, '@')+1);
+        $controller = substr($contro, 0, strrpos($contro, 'controller'));
+        $action = substr($contro, strpos($contro, '@')+1);
 
-            foreach ($node as $k => $v) {
-                if ($v->node_controllers === $controller && $v->node_action === $action) {
-                    break;
-                }
+        foreach ($node as $k => $v) {
+            if ($v->node_controllers === $controller && $v->node_action === $action) {
+                break;
             }
         }
 

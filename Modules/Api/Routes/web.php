@@ -16,24 +16,24 @@ Route::prefix('api')->group(function() {
 });
 
 //分类商品列表
-Route::any('goods/index', 'GoodsController@index');
+Route::any('interface/index', 'InterfaceController@index');
 //商品详情页
-Route::any('goods/detail', 'GoodsController@detail');
+Route::any('interface/detail', 'InterfaceController@detail');
 //加入购物车
-Route::any('goods/join', 'GoodsController@join');
+Route::any('interface/join', 'InterfaceController@join');
 //添加收藏
-Route::any('goods/collect', 'GoodsController@collect');
+Route::any('interface/collect', 'InterfaceController@collect');
 //立即购买
-Route::any('goods/buy', 'GoodsController@buy');
+Route::any('interface/buy', 'InterfaceController@buy');
 //购物车列表
-Route::any('goods/goodlist', 'GoodsController@goodlist');
+Route::any('interface/goodlist', 'InterfaceController@goodlist');
 //去结算
-Route::any('goods/balance', 'GoodsController@balance');
+Route::any('interface/balance', 'InterfaceController@balance');
 //删除
-Route::any('goods/delete', 'GoodsController@delete');
+Route::any('interface/delete', 'InterfaceController@delete');
 //数量修改
-Route::any('goods/number', 'GoodsController@number');
+Route::any('interface/number', 'InterfaceController@number');
 //下单接口
-Route::any('goods/true', 'GoodsController@true');
+Route::any('interface/active', 'InterfaceController@active');
 //调用第三方接口支付接口
-// Route::any('goods/index', 'GoodsController@index');
+// Route::any('interface/index', 'InterfaceController@index');

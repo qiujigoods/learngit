@@ -26,6 +26,7 @@ class RbacController extends Controller
 		
 		$role_node = DB::table('role_node')->where('role_id', $object->role_id)->get();
 
+
 		$relations = [];
 
 		foreach ($role_node as $k => $v) {
@@ -33,7 +34,7 @@ class RbacController extends Controller
 		}
 
 		$node = DB::table('node')->whereIn('id', $relations)->get();
-
+    
 		$url = \Route::current()->getActionName();
 
     	$c = strtolower(substr($url, strrpos($url, '\\')+1));

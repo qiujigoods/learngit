@@ -15,6 +15,10 @@ Route::prefix('admin')->group(function() {
     Route::any('/', 'AdminController@index');
 });
 
+
+Route::any('rbac/index', 'RbacController@index');
+
+
 Route::any('admin/login', 'AdminController@login');
 Route::any('admin/home', 'AdminController@home');
 Route::any('admin/out', 'AdminController@out');
@@ -46,7 +50,7 @@ Route::any('auth/add', 'AuthController@add')->middleware('rbac');
 Route::any('auth/del', 'AuthController@del')->middleware('rbac');
 Route::any('auth/save', 'AuthController@save')->middleware('rbac');
 Route::any('auth/empower', 'AuthController@empower')->middleware('rbac');
-Route::any('role/add', 'RoleController@add');
+
 Route::any('admin/out', 'AdminController@out');
 
 Route::any('role/add', 'RoleController@add');
