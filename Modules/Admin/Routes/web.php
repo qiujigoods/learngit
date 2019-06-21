@@ -14,9 +14,16 @@
 Route::prefix('admin')->group(function() {
     Route::any('/', 'AdminController@index');
 });
+
+Route::any('admin/login', 'AdminController@login');
+Route::any('admin/home', 'AdminController@home');
+Route::any('admin/out', 'AdminController@out');
+
+Route::any('role/add', 'RoleController@add');
 Route::any('admin/welcome', 'AdminController@welcome');
 Route::any('admin/login', 'AdminController@login');
 Route::any('admin/home', 'AdminController@home');
+
 
 //权限限制
 // Route::any('rbac/index', 'RbacController@index');
@@ -57,6 +64,16 @@ Route::any('brand/brandDel','BrandController@brandDel');
 Route::any('brand/brandUpd','BrandController@brandUpd');
 Route::post('brand/brandUpdate','BrandController@brandUpdate');
 
+Route::any('goods/index','GoodsController@index');
+Route::any('goods/add','GoodsController@add');
+Route::any('goods/sel','GoodsController@sel');
+Route::any('goods/selval','GoodsController@selval');
+Route::any('goods/add_sku','GoodsController@add_sku');
+Route::any('goods/member_edit','GoodsController@member_edit');
+Route::any('goods/goods_up','GoodsController@goods_up');
+
+Route::any('warehouse/index','WarehouseController@index');
+Route::any('warehouse/member_edit','WarehouseController@member_edit');
 Route::any('type/index', 'TypeController@index');
 Route::any('type/add', 'TypeController@add');
 Route::any('type/doAdd', 'TypeController@doAdd');
@@ -84,8 +101,10 @@ Route::any('order/details','OrderController@details');
 Route::any('order/statusindex','OrderController@statusindex');
 Route::any('order/statusDel','OrderController@statusDel');
 Route::any('order/statusUpdate','OrderController@statusUpdate');
+
 Route::any('order/orderUserUpdate','OrderController@orderUserUpdate');
 Route::any('order/doUserUpdate','OrderController@doUserUpdate');
 
 
 Route::any('rbac/index','RbacController@index');
+

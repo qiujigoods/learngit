@@ -3,7 +3,7 @@
 namespace Modules\Admin\Http\Controllers;
 
 use App\User;
-use App\Http\Request;
+use Illuminate\Support\Facades\Request;
 use App\Http\Controllers\Controller;
 use DB;
 use Illuminate\Support\Facades\Session;
@@ -22,10 +22,9 @@ class AdminController extends Controller
     public function login()
     {
         if(request()->isMethod('post')){
+
             $data = request()->post();
-            if($data['luotest_response']==''){
-                 echo "验证错误123";die;
-            }
+
 
             //var_dump($data);die;
             $res  = DB::table("admin")
@@ -34,6 +33,7 @@ class AdminController extends Controller
                                 ->where('is_del', '0')
                                 ->first();
             //var_dump($data);die;
+
             if($res){
                 session(['info' => $res]);
                 return redirect('admin/home');
@@ -51,7 +51,7 @@ class AdminController extends Controller
     }
 
     public function home()
-    {
+    { 
         //判断session中是否存在用户信息
         // if (request()->Session()->has('info')) {
         //     // 获取用户信息
@@ -69,7 +69,7 @@ class AdminController extends Controller
         //         $relations[] = $v->menu_id;
         //     }
 
-        //     $node = DB::table('menu')->whereIn('id', $relations)->get();
+        //     $menu = DB::table('menu')->whereIn('id', $relations)->get();
         // }
 
         $res = DB::table('menu')

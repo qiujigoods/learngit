@@ -12,6 +12,7 @@ class BrandController extends Controller
 {
 	public function index()
 	{
+		
 		$res = DB::table('brand')->orderBy('sort')->paginate(10);
 		return view('admin::brand/index',['res'=>$res]);
 	}
@@ -64,7 +65,8 @@ class BrandController extends Controller
 		// echo "123";die;
 		$id = request()->get('id');
 		$res = DB::table('brand')->where('id',$id)->first();
-		return view('admin::brand/brand-upd',['res'=>$res]);
+		return view('admin::brand/member-upd',['res'=>$res]);
+		//return view('admin::brand/brand-upd',['res'=>$res]);
 	}
 
 	public function brandUpdate()

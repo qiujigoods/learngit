@@ -1,7 +1,6 @@
 <?php
 
 namespace Modules\Admin\Http\Middleware;
-
 use Closure;
 use Illuminate\Http\Request;
 use DB;
