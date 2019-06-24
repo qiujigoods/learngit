@@ -16,7 +16,7 @@ Route::prefix('api')->group(function() {
 });
 
 //分类商品列表
-Route::any('goods/index', 'GoodsController@index');
+// Route::any('goods/index', 'GoodsController@index');
 //商品详情页
 Route::any('goods/detail', 'GoodsController@detail');
 //加入购物车

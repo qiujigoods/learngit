@@ -5,13 +5,14 @@ namespace Modules\Api\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
+use DB;
 
 class GoodsController extends Controller
 {
 	//分类商品列表
 	public function index()
 	{
-		$type = DB::table('category')->paginate(10);
+		$type = DB::table('category')->get();
 
 		if ($type) {
 			return json_encode(array(['code'=>1, 'msg'=>'获取成功', 'result'=>$type]));
@@ -35,7 +36,7 @@ class GoodsController extends Controller
 					return json_encode(array(['code'=>1, 'msg'=>'获取商品详情成功', 'result'=>$detail]));
 				}
 
-				retrun json_encode(array(['code'=>0, 'msg'=>'获取商品详情失败']));
+				return json_encode(array(['code'=>0, 'msg'=>'获取商品详情失败']));
 			}
 
 			return json_encode(array(['code'=>0, 'msg'=>'验证用户信息失败']));
@@ -223,10 +224,10 @@ class GoodsController extends Controller
 		$info = DB::table('member')->where('token', $token)->find();
 
 		$time = time();
-		if ($info->logintime+2*60*60>$time {
-			return json_encode(array(['code'=1, 'msg'=>'token令牌正常', 'result'=>$info]));
+		if ($info->logintime+2*60*60>$time) {
+			return json_encode(array(['code'=>1, 'msg'=>'token令牌正常', 'result'=>$info]));
 		}
-		return json_encode(array(['code'=0, 'msg'=>'token已过期'));
+		return json_encode(array(['code'=>0, 'msg'=>'token已过期']));
 	}
 }
 
