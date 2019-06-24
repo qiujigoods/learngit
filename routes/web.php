@@ -20,3 +20,9 @@ Route::get('/admin', '\Modules\Admin\Http\Controllers\AdminController@index');
 Route::any('index/login','IndexController@login');
 Route::any('index/index','IndexController@index');  //主页
 Route::any('fl/index','FlController@showType');  //主页
+
+//注册
+Route::any('register/register','RegisterController@register');
+
+
+
