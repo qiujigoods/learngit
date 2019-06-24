@@ -1,22 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Checkout</title>
-<<<<<<< HEAD
-<link href="../fashion/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="../fashion/js/jquery.min.js"></script>
-<!-- Custom Theme files -->
-<!--theme-style-->
-<link href="../fashion/css/style.css" rel="stylesheet" type="text/css" media="all" />	
-=======
+<title>Products</title>
 <link href="../css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="../js/jquery.min.js"></script>
 <!-- Custom Theme files -->
 <!--theme-style-->
 <link href="../css/style.css" rel="stylesheet" type="text/css" media="all" />	
->>>>>>> 20216350aee4d7761129a572d1207427a887daab
 <!--//theme-style-->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -24,17 +15,10 @@
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!-- start menu -->
-<<<<<<< HEAD
-<link href="../fashion/css/memenu.css" rel="stylesheet" type="text/css" media="all" />
-<script type="text/javascript" src="../fashion/js/memenu.js"></script>
-<script>$(document).ready(function(){$(".memenu").memenu();});</script>
-<script src="../fashion/js/simpleCart.min.js"> </script>
-=======
 <link href="../css/memenu.css" rel="stylesheet" type="text/css" media="all" />
 <script type="text/javascript" src="../js/memenu.js"></script>
 <script>$(document).ready(function(){$(".memenu").memenu();});</script>
 <script src="../js/simpleCart.min.js"> </script>
->>>>>>> 20216350aee4d7761129a572d1207427a887daab
 <!-- slide -->
 </head>
 <body>
@@ -59,11 +43,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</ul>
 				</div>
 				<div class="col-md-4 logo">
-<<<<<<< HEAD
-					<a href="index.html"><img src="../fashion/images/logo.png" alt=""></a>	
-=======
 					<a href="index.html"><img src="../images/logo.png" alt=""></a>	
->>>>>>> 20216350aee4d7761129a572d1207427a887daab
 				</div>
 		
 			<div class="col-md-4 header-left">		
@@ -77,10 +57,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</p>
 				<?php } ?>
 					<div class="cart box_1">
-						<a href="checkout.html">
+						<a href="checkout">
 						<h3> <div class="total">
 							<span class="simpleCart_total"></span></div>
-							<img src="images/cart.png" alt=""/></h3>
+							<img src="../images/cart.png" alt=""/></h3>
 						</a>
 						<p><a href="javascript:;" class="simpleCart_empty">Empty Cart</a></p>
 
@@ -95,7 +75,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="col-md-2 number">
 					<span><i class="glyphicon glyphicon-phone"></i>085 596 234</span>
 				</div>
-	<div class="col-md-8 h_menu4">
+		<div class="col-md-8 h_menu4">
 				<ul class="memenu skyblue">
 					  <li class=" grid"><a  href="index.html">Home</a></li>	
 				      <li><a  href="#">Men</a>
@@ -226,15 +206,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</div>
 		<div class="clearfix"> </div>
 			<!---pop-up-box---->
-<<<<<<< HEAD
-					  <script type="text/javascript" src="../fashion/js/modernizr.custom.min.js"></script>    
-					<link href="../fashion/css/popuo-box.css" rel="stylesheet" type="text/css" media="all"/>
-					<script src="../fashion/js/jquery.magnific-popup.js" type="text/javascript"></script>
-=======
 					  <script type="text/javascript" src="../js/modernizr.custom.min.js"></script>    
 					<link href="../css/popuo-box.css" rel="stylesheet" type="text/css" media="all"/>
 					<script src="../js/jquery.magnific-popup.js" type="text/javascript"></script>
->>>>>>> 20216350aee4d7761129a572d1207427a887daab
 					<!---//pop-up-box---->
 				<div id="small-dialog" class="mfp-hide">
 				<div class="search-top">
@@ -260,103 +234,173 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						});
 																						
 						});
-
-						$(document).on("click",".check",function(){
-					        $(this).hide();  //span隐藏
-					        $(this).next().show();//input显示
-					        var check = $(this).next().val();   //input给span
-					        $(this).next().val("");   //清空input
-					        $(this).next().val(check);   //给input值
-					        $(this).next().focus();  //给光标
-					    })
-
-					    $(document).on("blur",".s_check",function(){
-					        var check = $(this).val();  //把input值给span
-					        var id = $(this).attr("where"); //给一个自定义id
-					        var price = $('.price').html();
-					        var sum = check*price;
-					        
-					        var _this=$(this);
-
-					        if(check==$(this).prev().html()){   //判断是否重复
-					            _this.hide();
-					            _this.prev().show();
-					            return false;
-					        }
-
-					        $.ajax({
-					            type:"get",
-					            url:"changcheck",
-					            data:{id:id,check:check,sum:sum},
-					            dataType:"json",
-					            success:function(e){
-					            	console.log(e);
-				                if(e==1){
-				                    _this.prev().html(check);   //给span一个返回的input值
-				                    _this.val(check);   //input值为也为这个				     
-				                    _this.hide();
-				                    _this.prev().show();
-				                   $(".sum").html(sum);
-				                }
-				             }
-				        })
-				        
-				    })
-					
 				</script>			
 	<!---->		
 		</div>
 	</div>
 </div>
-<!--//header-->
-<!---->
-<div class="container">
-	<div class="check-out">
-		<h1>Checkout</h1>
-    	    <table >
-		  <tr>
-			<th>Item</th>
-			<th>Qty</th>		
-<<<<<<< HEAD
-=======
-			<th>Prices</th>
-			<th>Delery Detials</th>
-			<th>Subtotal</th>
->>>>>>> 20216350aee4d7761129a572d1207427a887daab
-			<th>delect</th>
-		  </tr>
-		  <?php foreach ($res as $k=>$v): ?>
-		  	<tr>
-<<<<<<< HEAD
-			<td class="ring-in">
-			
-				<?php echo $v->content; ?>
-			
-		</td>
-		<td>
-			<div class="clearfix"> <?php echo $v->num; ?></div></td>
-				
-=======
-			<td class="ring-in"><a href="single.html" class="at-in"><img src="<?php echo '../images/'.$v->img; ?>" class="img-responsive" alt=""></a>
-			<div class="sed">
-				<h5><?php echo $v->goods_name; ?></h5>
-				<p>(<?php echo $v->introduce; ?>) </p>
-			
+<!--content-->
+<div class="products">
+	<div class="container">
+		<h1>Products</h1>
+		<div class="col-md-9">
+			<div class="content-top1">
+				<?php foreach ($res as $key => $v): ?>
+					<div class="col-md-4 col-md3">
+					<div class="col-md1 simpleCart_shelfItem">
+						<a href="single?id=<?php echo $v->id ?>">
+							<img class="img-responsive" src="<?php echo '../images/'.$v->img; ?>" alt="" />
+						</a>
+						<h3><a href="single?id=<?php echo $v->id ?>"><?php echo $v->name; ?></a></h3>
+						<div class="price">
+								<h5 class="item_price">$<?php echo $v->price; ?></h5>
+								<a href="checkout_add?id=<?php echo $v->id ?>" class="item_add">Add To Cart</a>
+								<div class="clearfix"> </div>
+						</div>
+					</div>			
+				</div>	
+				<?php endforeach ?>		
+			<div class="clearfix"> </div>
+			{{ $res->links() }}
+
+			</div>	
+		</div>
+		<div class="col-md-3 product-bottom">
+			<!--categories-->
+				<div class=" rsidebar span_1_of_left">
+						<h3 class="cate">Categories</h3>
+							 <ul class="menu-drop">
+							<li class="item1"><a href="#">Men </a>
+								<ul class="cute">
+									<li class="subitem1"><a href="single.html">Cute Kittens </a></li>
+									<li class="subitem2"><a href="single.html">Strange Stuff </a></li>
+									<li class="subitem3"><a href="single.html">Automatic Fails </a></li>
+								</ul>
+							</li>
+							<li class="item2"><a href="#">Women </a>
+								<ul class="cute">
+									<li class="subitem1"><a href="single.html">Cute Kittens </a></li>
+									<li class="subitem2"><a href="single.html">Strange Stuff </a></li>
+									<li class="subitem3"><a href="single.html">Automatic Fails </a></li>
+								</ul>
+							</li>
+							<li class="item3"><a href="#">Kids</a>
+								<ul class="cute">
+									<li class="subitem1"><a href="single.html">Cute Kittens </a></li>
+									<li class="subitem2"><a href="single.html">Strange Stuff </a></li>
+									<li class="subitem3"><a href="single.html">Automatic Fails</a></li>
+								</ul>
+							</li>
+							<li class="item4"><a href="#">Accesories</a>
+								<ul class="cute">
+									<li class="subitem1"><a href="single.html">Cute Kittens </a></li>
+									<li class="subitem2"><a href="single.html">Strange Stuff </a></li>
+									<li class="subitem3"><a href="single.html">Automatic Fails</a></li>
+								</ul>
+							</li>
+									
+							<li class="item4"><a href="#">Shoes</a>
+								<ul class="cute">
+									<li class="subitem1"><a href="product.html">Cute Kittens </a></li>
+									<li class="subitem2"><a href="product.html">Strange Stuff </a></li>
+									<li class="subitem3"><a href="product.html">Automatic Fails </a></li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				<!--initiate accordion-->
+						<script type="text/javascript">
+							$(function() {
+							    var menu_ul = $('.menu-drop > li > ul'),
+							           menu_a  = $('.menu-drop > li > a');
+							    menu_ul.hide();
+							    menu_a.click(function(e) {
+							        e.preventDefault();
+							        if(!$(this).hasClass('active')) {
+							            menu_a.removeClass('active');
+							            menu_ul.filter(':visible').slideUp('normal');
+							            $(this).addClass('active').next().stop(true,true).slideDown('normal');
+							        } else {
+							            $(this).removeClass('active');
+							            $(this).next().stop(true,true).slideUp('normal');
+							        }
+							    });
+							
+							});
+						</script>
+<!--//menu-->
+<!--seller-->
+				<div class="product-bottom">
+						<h3 class="cate">Best Sellers</h3>
+					<div class="product-go">
+						<div class=" fashion-grid">
+							<a href="single.html"><img class="img-responsive " src="../images/pr.jpg" alt=""></a>	
+						</div>
+						<div class=" fashion-grid1">
+							<h6 class="best2"><a href="single.html" >Lorem ipsum dolor sitamet consectetuer  </a></h6>
+							<span class=" price-in1"> $40.00</span>
+						</div>	
+						<div class="clearfix"> </div>
+					</div>
+					<div class="product-go">
+						<div class=" fashion-grid">
+							<a href="single.html"><img class="img-responsive " src="../images/pr1.jpg" alt=""></a>	
+						</div>
+						<div class=" fashion-grid1">
+							<h6 class="best2"><a href="single.html" >Lorem ipsum dolor sitamet consectetuer  </a></h6>
+							<span class=" price-in1"> $40.00</span>
+						</div>	
+						<div class="clearfix"> </div>
+					</div>
+					<div class="product-go">
+						<div class=" fashion-grid">
+							<a href="single.html"><img class="img-responsive " src="../images/pr2.jpg" alt=""></a>	
+						</div>
+						<div class=" fashion-grid1">
+							<h6 class="best2"><a href="single.html" >Lorem ipsum dolor sitamet consectetuer  </a></h6>
+							<span class=" price-in1"> $40.00</span>
+						</div>	
+						<div class="clearfix"> </div>
+					</div>	
+					<div class="product-go">
+						<div class=" fashion-grid">
+							<a href="single.html"><img class="img-responsive " src="../images/pr3.jpg" alt=""></a>	
+						</div>
+						<div class=" fashion-grid1">
+							<h6 class="best2"><a href="single.html" >Lorem ipsum dolor sitamet consectetuer  </a></h6>
+							<span class=" price-in1"> $40.00</span>
+						</div>	
+						<div class="clearfix"> </div>
+					</div>		
+				</div>
+
+<!--//seller-->
+<!--tag-->
+				<div class="tag">	
+						<h3 class="cate">Tags</h3>
+					<div class="tags">
+						<ul>
+							<li><a href="#">design</a></li>
+							<li><a href="#">fashion</a></li>
+							<li><a href="#">lorem</a></li>
+							<li><a href="#">dress</a></li>
+							<li><a href="#">fashion</a></li>
+							<li><a href="#">dress</a></li>
+							<li><a href="#">design</a></li>
+							<li><a href="#">dress</a></li>
+							<li><a href="#">design</a></li>
+							<li><a href="#">fashion</a></li>
+							<li><a href="#">lorem</a></li>
+							<li><a href="#">dress</a></li>
+						<div class="clearfix"> </div>
+						</ul>
+				</div>					
 			</div>
-			<div class="clearfix"> </div></td>
-			<td><span class="check"><?php echo $v->cont; ?></span><input type="text" style="display:none" value="<?php echo $v->cont; ?>" class="s_check" where="<?php echo $v->id; ?>"></td>		
-			<td class="price"><?php echo $v->price; ?></td>
-			<td>FREE SHIPPING</td>
-			<td class="sum"><?php echo $v->sum; ?></td>
->>>>>>> 20216350aee4d7761129a572d1207427a887daab
-			<td><a href="del?id=<?php echo $v->id; ?>">delect</a></td>
-		  </tr>
-		  <?php endforeach ?>
-	</table>
-	<a href="index" class=" to-buy">PROCEED TO BUY</a>
-	<div class="clearfix"> </div>
-    </div>
+		</div>
+		<div class="clearfix"> </div>
+	</div>
 </div>
+<!--//content-->
 <!--footer-->
 <div class="footer">
 	<div class="container">

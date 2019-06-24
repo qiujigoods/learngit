@@ -15,7 +15,12 @@ Route::prefix('api')->group(function() {
     Route::get('/', 'ApiController@index');
 });
 
+<<<<<<< HEAD
 
+=======
+//分类商品列表
+// Route::any('goods/index', 'GoodsController@index');
+>>>>>>> 20216350aee4d7761129a572d1207427a887daab
 //商品详情页
 Route::any('goods/detail', 'GoodsController@detail');
 //加入购物车

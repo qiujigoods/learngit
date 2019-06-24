@@ -1,22 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Checkout</title>
-<<<<<<< HEAD
+<title>Account</title>
 <link href="../fashion/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="../fashion/js/jquery.min.js"></script>
 <!-- Custom Theme files -->
 <!--theme-style-->
 <link href="../fashion/css/style.css" rel="stylesheet" type="text/css" media="all" />	
-=======
-<link href="../css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="../js/jquery.min.js"></script>
-<!-- Custom Theme files -->
-<!--theme-style-->
-<link href="../css/style.css" rel="stylesheet" type="text/css" media="all" />	
->>>>>>> 20216350aee4d7761129a572d1207427a887daab
 <!--//theme-style-->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -24,17 +15,10 @@
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!-- start menu -->
-<<<<<<< HEAD
 <link href="../fashion/css/memenu.css" rel="stylesheet" type="text/css" media="all" />
 <script type="text/javascript" src="../fashion/js/memenu.js"></script>
 <script>$(document).ready(function(){$(".memenu").memenu();});</script>
 <script src="../fashion/js/simpleCart.min.js"> </script>
-=======
-<link href="../css/memenu.css" rel="stylesheet" type="text/css" media="all" />
-<script type="text/javascript" src="../js/memenu.js"></script>
-<script>$(document).ready(function(){$(".memenu").memenu();});</script>
-<script src="../js/simpleCart.min.js"> </script>
->>>>>>> 20216350aee4d7761129a572d1207427a887daab
 <!-- slide -->
 </head>
 <body>
@@ -59,28 +43,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</ul>
 				</div>
 				<div class="col-md-4 logo">
-<<<<<<< HEAD
 					<a href="index.html"><img src="../fashion/images/logo.png" alt=""></a>	
-=======
-					<a href="index.html"><img src="../images/logo.png" alt=""></a>	
->>>>>>> 20216350aee4d7761129a572d1207427a887daab
 				</div>
 		
 			<div class="col-md-4 header-left">		
-					<?php if(request()->cookie('user')) { ?>
-					<p class="log">
-						<a href="login"  ><?php echo request()->cookie('user'); ?></a>
-					</p>
-				<?php }else{ ?>	
 					<p class="log"><a href="login"  >Login</a>
-						<span>or</span><a  href="signup"  >Signup</a>
-					</p>
-				<?php } ?>
+						<span>or</span><a  href="signup"  >Signup</a></p>
 					<div class="cart box_1">
 						<a href="checkout.html">
 						<h3> <div class="total">
 							<span class="simpleCart_total"></span></div>
-							<img src="images/cart.png" alt=""/></h3>
+							<img src="../fashion/images/cart.png" alt=""/></h3>
 						</a>
 						<p><a href="javascript:;" class="simpleCart_empty">Empty Cart</a></p>
 
@@ -95,7 +68,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="col-md-2 number">
 					<span><i class="glyphicon glyphicon-phone"></i>085 596 234</span>
 				</div>
-	<div class="col-md-8 h_menu4">
+		  <div class="col-md-8 h_menu4">
 				<ul class="memenu skyblue">
 					  <li class=" grid"><a  href="index.html">Home</a></li>	
 				      <li><a  href="#">Men</a>
@@ -218,7 +191,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<li><a class="color6" href="contact.html">Conact</a></li>
 			  </ul> 
 			</div>
-				<div class="col-md-2 search">		
+		<div class="col-md-2 search">		
 			<form action="seach" method="get">
 						<input type="text" name="name">
 						<input type="submit" value="搜搜">
@@ -226,15 +199,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</div>
 		<div class="clearfix"> </div>
 			<!---pop-up-box---->
-<<<<<<< HEAD
 					  <script type="text/javascript" src="../fashion/js/modernizr.custom.min.js"></script>    
 					<link href="../fashion/css/popuo-box.css" rel="stylesheet" type="text/css" media="all"/>
 					<script src="../fashion/js/jquery.magnific-popup.js" type="text/javascript"></script>
-=======
-					  <script type="text/javascript" src="../js/modernizr.custom.min.js"></script>    
-					<link href="../css/popuo-box.css" rel="stylesheet" type="text/css" media="all"/>
-					<script src="../js/jquery.magnific-popup.js" type="text/javascript"></script>
->>>>>>> 20216350aee4d7761129a572d1207427a887daab
 					<!---//pop-up-box---->
 				<div id="small-dialog" class="mfp-hide">
 				<div class="search-top">
@@ -260,103 +227,40 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						});
 																						
 						});
-
-						$(document).on("click",".check",function(){
-					        $(this).hide();  //span隐藏
-					        $(this).next().show();//input显示
-					        var check = $(this).next().val();   //input给span
-					        $(this).next().val("");   //清空input
-					        $(this).next().val(check);   //给input值
-					        $(this).next().focus();  //给光标
-					    })
-
-					    $(document).on("blur",".s_check",function(){
-					        var check = $(this).val();  //把input值给span
-					        var id = $(this).attr("where"); //给一个自定义id
-					        var price = $('.price').html();
-					        var sum = check*price;
-					        
-					        var _this=$(this);
-
-					        if(check==$(this).prev().html()){   //判断是否重复
-					            _this.hide();
-					            _this.prev().show();
-					            return false;
-					        }
-
-					        $.ajax({
-					            type:"get",
-					            url:"changcheck",
-					            data:{id:id,check:check,sum:sum},
-					            dataType:"json",
-					            success:function(e){
-					            	console.log(e);
-				                if(e==1){
-				                    _this.prev().html(check);   //给span一个返回的input值
-				                    _this.val(check);   //input值为也为这个				     
-				                    _this.hide();
-				                    _this.prev().show();
-				                   $(".sum").html(sum);
-				                }
-				             }
-				        })
-				        
-				    })
-					
 				</script>			
 	<!---->		
 		</div>
 	</div>
 </div>
 <!--//header-->
-<!---->
-<div class="container">
-	<div class="check-out">
-		<h1>Checkout</h1>
-    	    <table >
-		  <tr>
-			<th>Item</th>
-			<th>Qty</th>		
-<<<<<<< HEAD
-=======
-			<th>Prices</th>
-			<th>Delery Detials</th>
-			<th>Subtotal</th>
->>>>>>> 20216350aee4d7761129a572d1207427a887daab
-			<th>delect</th>
-		  </tr>
-		  <?php foreach ($res as $k=>$v): ?>
-		  	<tr>
-<<<<<<< HEAD
-			<td class="ring-in">
-			
-				<?php echo $v->content; ?>
-			
-		</td>
-		<td>
-			<div class="clearfix"> <?php echo $v->num; ?></div></td>
+<div class="account">
+	<div class="container">
+		<h1>Account</h1>
+		<div class="account_grid">
+			   <div class="col-md-6 login-right">
+				<form action="login" method="post">
+
+					<span>User name</span>
+					<input type="text" name="username"> 
 				
-=======
-			<td class="ring-in"><a href="single.html" class="at-in"><img src="<?php echo '../images/'.$v->img; ?>" class="img-responsive" alt=""></a>
-			<div class="sed">
-				<h5><?php echo $v->goods_name; ?></h5>
-				<p>(<?php echo $v->introduce; ?>) </p>
-			
-			</div>
-			<div class="clearfix"> </div></td>
-			<td><span class="check"><?php echo $v->cont; ?></span><input type="text" style="display:none" value="<?php echo $v->cont; ?>" class="s_check" where="<?php echo $v->id; ?>"></td>		
-			<td class="price"><?php echo $v->price; ?></td>
-			<td>FREE SHIPPING</td>
-			<td class="sum"><?php echo $v->sum; ?></td>
->>>>>>> 20216350aee4d7761129a572d1207427a887daab
-			<td><a href="del?id=<?php echo $v->id; ?>">delect</a></td>
-		  </tr>
-		  <?php endforeach ?>
-	</table>
-	<a href="index" class=" to-buy">PROCEED TO BUY</a>
-	<div class="clearfix"> </div>
-    </div>
+					<span>Password</span>
+					<input type="text" name="password"> 
+					<div class="word-in">
+				  		<a class="forgot" href="retrieve">Forgot Your Password?</a>
+				 		 <input type="submit" value="Login">
+				  	</div>
+			    </form>
+			   </div>	
+			    <div class="col-md-6 login-left">
+			  	 <h4>NEW CUSTOMERS</h4>
+				 <p>By creating an account with our store, you will be able to move through the checkout process faster, store multiple shipping addresses, view and track your orders in your account and more.</p>
+				 <a class="acount-btn" href="signup">Create an Account</a>
+			   </div>
+			   <div class="clearfix"> </div>
+			 </div>
+	</div>
 </div>
+
 <!--footer-->
 <div class="footer">
 	<div class="container">
