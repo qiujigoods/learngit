@@ -38,5 +38,10 @@ class FashionController extends Controller
 		return view('fashion/single',['res'=>$res,'res1'=>$res1,'sku'=>$sku,'attr'=>$attr]);
 	}
 
-
+	public function checkout(){
+		// $user_id = request()->cookie('user_id');
+		$user_id = 4;
+		$res = DB::table("goods_car")->where('user_id','=',$user_id)->get();
+		return view("fashion/checkout",['res'=>$res]);
+	}
 }

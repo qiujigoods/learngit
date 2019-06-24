@@ -22,6 +22,7 @@ Route::get('/admin', '\Modules\Admin\Http\Controllers\AdminController@index');
 // Route::any('fl/index','FlController@showType');  //主页
 
 Route::any('login/login','LoginController@login');
+Route::any('login/loginOut','LoginController@loginOut');
 Route::any('login/signup','LoginController@signup');  
 Route::post('login/signup_add','LoginController@signup_add');
 Route::any('login/retrieve','LoginController@retrieve'); 
@@ -31,3 +32,4 @@ Route::any('login/retrieve_g','LoginController@retrieve_g');
 
 Route::any('single','FashionController@single');
 Route::any('index','FashionController@index');
+Route::any('checkout','FashionController@checkout');

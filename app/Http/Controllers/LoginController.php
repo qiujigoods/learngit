@@ -12,7 +12,6 @@ class LoginController extends Controller
 {
 	public function login()
 	{
-		Cookie::queue(\Cookie::forget('user'));
 		if(request()->isMethod('post')){
 			$data = request()->post();
 			$res  = DB::table("user")
@@ -35,6 +34,12 @@ class LoginController extends Controller
 			}
 		}
 		return view('login/account');
+	}
+
+	public function loginOut()
+	{
+		Cookie::queue(\Cookie::forget('user'));
+		return redirect('login/login');
 	}
 
 	//注册

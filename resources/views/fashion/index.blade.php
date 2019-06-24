@@ -70,7 +70,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="col-sm-4 header-left">	
 				<?php if(request()->cookie('user')) { ?>
 					<p class="log">
-						<a href="login/login"  ><?php echo request()->cookie('user'); ?></a>
+						<a href="login/loginOut"><?php echo request()->cookie('user'); ?></a>|
+						<a href="login/loginOut">out</a>
 					</p>
 				<?php }else{ ?>	
 					<p class="log"><a href="login/login"  >Login</a>
