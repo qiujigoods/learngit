@@ -45,4 +45,72 @@ class FashionController extends Controller
 		$res = DB::table("goods_car")->where('user_id','=',$user_id)->get();
 		return view("fashion/checkout",['res'=>$res]);
 	}
+
+	public function changcheck(){
+
+		$check = $_GET['check'];
+		$sum = $_GET['sum'];
+		$id = $_GET['id'];
+		$res = DB::table("sc_checkout")->where('id','=',$id)->update(['cont'=>$check]);
+		if($res){
+			$data = DB::table("sc_checkout")->where('id','=',$id)->update(['sum'=>$sum]);
+			if($data){
+				return 1;
+			}
+			
+		}
+	}
+
+	//删除购物车商品
+	public function del(){
+		$id = $_GET['id'];
+		$res = DB::table("sc_checkout")->where("id",$id)->delete();
+		if($res){
+			return redirect('fashion/checkout');
+		}
+		
+
+	}
+
+	//商品
+	public function products(){
+		$res = DB::table("sc_goods")->where("stuts",'=','1')->orderBy('time','desc')->paginate(9);
+
+		return view('fashion/products',['res'=>$res]);
+	}
+
+	//搜索
+	public function seach(){
+		$name = request()->get('name','');
+		if($name==''){
+			return redirect('fashion/index');
+		}
+		$res = DB::table("sc_goods")->where('name','like','%'.$name.'%')->get();
+
+		return view('fashion/seach',['res'=>$res]);
+	}
+
+	//评论
+	public function contact(){
+		$goods_id = $_GET['id'];
+		$res = DB::table("sc_goods")->where('id','=',$goods_id)->get();
+		// var_dump($res);die;
+		return view("fashion/contact",['res'=>$res]);
+	}
+
+	public function contact_add(){
+		// $goods_id = $_post['id'];
+		$data = request()->post();
+		$arr = [
+			'name'=>request()->cookie('user'),
+			'goods_id'=>$data['id'],
+			'message'=>$data['message'],
+		];
+
+		$res = DB::table("sc_contact")->insert($arr);
+		//var_dump($res);
+		if($res){
+			return redirect('fashion/index');
+	    }
+	}
 }

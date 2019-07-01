@@ -7,12 +7,21 @@ use Illuminate\Support\Facades\Cookie;
 <html>
 <head>
 <title>Home</title>
+<<<<<<< HEAD
+<link href="../fashion/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="../fashion/js/jquery.min.js"></script>
+<!-- Custom Theme files -->
+<!--theme-style-->
+<link href="../fashion/css/style.css" rel="stylesheet" type="text/css" media="all" />	
+=======
 <link href="../css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="../js/jquery.min.js"></script>
 <!-- Custom Theme files -->
 <!--theme-style-->
 <link href="../css/style.css" rel="stylesheet" type="text/css" media="all" />	
+>>>>>>> 20216350aee4d7761129a572d1207427a887daab
 <!--//theme-style-->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -20,12 +29,21 @@ use Illuminate\Support\Facades\Cookie;
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!-- start menu -->
+<<<<<<< HEAD
+<link href="../fashion/css/memenu.css" rel="stylesheet" type="text/css" media="all" />
+<script type="text/javascript" src="../fashion/js/memenu.js"></script>
+<script>$(document).ready(function(){$(".memenu").memenu();});</script>
+<script src="../fashion/js/simpleCart.min.js"> </script>
+<!-- slide -->
+<script src="../fashion/js/responsiveslides.min.js"></script>
+=======
 <link href="../css/memenu.css" rel="stylesheet" type="text/css" media="all" />
 <script type="text/javascript" src="../js/memenu.js"></script>
 <script>$(document).ready(function(){$(".memenu").memenu();});</script>
 <script src="../js/simpleCart.min.js"> </script>
 <!-- slide -->
 <script src="../js/responsiveslides.min.js"></script>
+>>>>>>> 20216350aee4d7761129a572d1207427a887daab
    <script>
     $(function () {
       $("#slider").responsiveSlides({
@@ -64,24 +82,41 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</ul>
 				</div>
 				<div class="col-sm-4 logo">
+<<<<<<< HEAD
+					<a href="index"><img src="../fashion/images/logo.png" alt=""></a>	
+=======
 					<a href="index"><img src="../images/logo.png" alt=""></a>	
+>>>>>>> 20216350aee4d7761129a572d1207427a887daab
 				</div>
 		
 			<div class="col-sm-4 header-left">	
 				<?php if(request()->cookie('user')) { ?>
 					<p class="log">
+<<<<<<< HEAD
+						<a href="login/loginOut"><?php echo request()->cookie('user'); ?></a>|
+						<a href="login/loginOut">out</a>
+					</p>
+				<?php }else{ ?>	
+					<p class="log"><a href="login/login"  >Login</a>
+						<span>or</span><a  href="login/signup"  >Signup</a>
+=======
 						<a href="login"  ><?php echo request()->cookie('user'); ?></a>
 					</p>
 				<?php }else{ ?>	
 					<p class="log"><a href="login"  >Login</a>
 						<span>or</span><a  href="signup"  >Signup</a>
+>>>>>>> 20216350aee4d7761129a572d1207427a887daab
 					</p>
 				<?php } ?>
 					<div class="cart box_1">
 						<a href="checkout">
 						<h3> <div class="total">
 							<span class="simpleCart_total"></span></div>
+<<<<<<< HEAD
+							<img src="../fashion/images/cart.png" alt=""/></h3>
+=======
 							<img src="../images/cart.png" alt=""/></h3>
+>>>>>>> 20216350aee4d7761129a572d1207427a887daab
 						</a>
 						<p><a href="javascript:;" class="simpleCart_empty">Empty Cart</a></p>
 
@@ -124,9 +159,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 		<div class="clearfix"> </div>
 			<!---pop-up-box---->
+<<<<<<< HEAD
+					  <script type="text/javascript" src="../fashion/js/modernizr.custom.min.js"></script>    
+					<link href="../fashion/css/popuo-box.css" rel="stylesheet" type="text/css" media="all"/>
+					<script src="../fashion/js/jquery.magnific-popup.js" type="text/javascript"></script>
+=======
 					  <script type="text/javascript" src="../js/modernizr.custom.min.js"></script>    
 					<link href="../css/popuo-box.css" rel="stylesheet" type="text/css" media="all"/>
 					<script src="../js/jquery.magnific-popup.js" type="text/javascript"></script>
+>>>>>>> 20216350aee4d7761129a572d1207427a887daab
 					<!---//pop-up-box---->
 				<div id="small-dialog" class="mfp-hide">
 				<div class="search-top">
@@ -161,18 +202,38 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!--banner-->
 <div class="banner">
 	<div class="col-sm-3 banner-mat">
+<<<<<<< HEAD
+		<img class="img-responsive"	src="../fashion/images/ba1.jpg" alt="">
+=======
 		<img class="img-responsive"	src="../images/ba1.jpg" alt="">
+>>>>>>> 20216350aee4d7761129a572d1207427a887daab
 	</div>
 	<div class="col-sm-6 matter-banner">
 	 	<div class="slider">
 	    	<div class="callbacks_container">
 	      		<ul class="rslides" id="slider">
+<<<<<<< HEAD
+	      			<li>
+	          			<img src="https://img1.360buyimg.com/da/s590x470_jfs/t1/11213/36/7306/87193/5c53b774E5f54628a/726f7530db185409.jpg!q90!cc_590x470.webp" alt="" style="height: 395px;">
+	       			</li>
+	       			<li>
+	          			<img src="https://img1.360buyimg.com/da/s590x470_jfs/t1/6559/12/158/78212/5bacdb0dE006dbebf/f1bf4338b8f963c1.jpg!q90!cc_590x470.webp" alt="" style="height: 395px;">
+	       			</li>
+	       			<li>
+	          			<img src="https://imgcps.jd.com/ling/4458191/5bq35biI5YKF5paw5ZOB5LiK5biC/5L2O6IezOOaKmA/t-5bd95aa3cc7bff03421326fa/5c667a9d.jpg" alt="" style="height: 395px;">
+	       			</li>
+=======
+>>>>>>> 20216350aee4d7761129a572d1207427a887daab
 	      		</ul>
 	 	 	</div>
 		</div>
 	</div>
 	<div class="col-sm-3 banner-mat">
+<<<<<<< HEAD
+		<img class="img-responsive" src="../fashion/images/ba.jpg" alt="">
+=======
 		<img class="img-responsive" src="../images/ba.jpg" alt="">
+>>>>>>> 20216350aee4d7761129a572d1207427a887daab
 	</div>
 	<div class="clearfix"> </div>
 </div>
@@ -187,7 +248,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<div class="col-md-3 col-md2">
 						<div class="col-md1 simpleCart_shelfItem">
 							<a href="single?id=<?php echo $v->id ?>">
+<<<<<<< HEAD
+								<img class="img-responsive" src="<?php echo $v->img; ?>" alt="" style="width: 185px; height: 207px;" />
+=======
 								<img class="img-responsive" src="<?php echo '../images/'.$v->img; ?>" alt="" style="width: 185px; height: 207px;" />
+>>>>>>> 20216350aee4d7761129a572d1207427a887daab
 							</a>
 							<h3><a href="single?id=<?php echo $v->id ?>" class="name"><?php echo $v->name; ?></a></h3>
 							<div class="price">

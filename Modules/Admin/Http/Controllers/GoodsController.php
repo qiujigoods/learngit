@@ -147,12 +147,12 @@ class GoodsController extends Controller
 		        $filename = $file->getClientOriginalName(); //文件原名称
 		        $extension = $file->getClientOriginalExtension(); //扩展名
 		        $filename = time() . "." . $extension;    //重命名
-		        $url="E:\phpStudy\PHPTutorial\WWW\learngit\public\upload\logo";
+		        $url="E:\phpStudy\PHPTutorial\WWW\learngit\public\upload";
 		        $file->move($url, $filename); //移动至指定目录
 
 		        $arr = [
 		        	'name' => $data['name'],
-		        	'img' => "../upload/logo/".$filename,
+		        	'img' => "../upload/".$filename,
 		        	'market_price' => $data['market_price'],
 		        	'cost_price' => $data['cost_price'],
 		        	'up_time' => $data['up_time'],

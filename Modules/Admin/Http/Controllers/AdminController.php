@@ -25,7 +25,14 @@ class AdminController extends Controller
 
             $data = request()->post();
 
-            $res  = DB::table("admin")->where('email', $data['email'])->where('password', md5($data['password']))->where('is_del', '0')->first();
+
+            //var_dump($data);die;
+            $res  = DB::table("admin")
+                                ->where('email', $data['email'])
+                                ->where('password', md5($data['password']))
+                                ->where('is_del', '0')
+                                ->first();
+            //var_dump($data);die;
 
             if($res){
                 session(['info' => $res]);
@@ -39,7 +46,7 @@ class AdminController extends Controller
 
     public function out()
     {
-        session()->forget('admin_name');
+        session()->forget('info');
         return redirect('admin');
     }
 

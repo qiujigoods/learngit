@@ -2,12 +2,21 @@
 <html>
 <head>
 <title>Checkout</title>
+<<<<<<< HEAD
+<link href="../fashion/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="../fashion/js/jquery.min.js"></script>
+<!-- Custom Theme files -->
+<!--theme-style-->
+<link href="../fashion/css/style.css" rel="stylesheet" type="text/css" media="all" />	
+=======
 <link href="../css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="../js/jquery.min.js"></script>
 <!-- Custom Theme files -->
 <!--theme-style-->
 <link href="../css/style.css" rel="stylesheet" type="text/css" media="all" />	
+>>>>>>> 20216350aee4d7761129a572d1207427a887daab
 <!--//theme-style-->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -15,10 +24,17 @@
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!-- start menu -->
+<<<<<<< HEAD
+<link href="../fashion/css/memenu.css" rel="stylesheet" type="text/css" media="all" />
+<script type="text/javascript" src="../fashion/js/memenu.js"></script>
+<script>$(document).ready(function(){$(".memenu").memenu();});</script>
+<script src="../fashion/js/simpleCart.min.js"> </script>
+=======
 <link href="../css/memenu.css" rel="stylesheet" type="text/css" media="all" />
 <script type="text/javascript" src="../js/memenu.js"></script>
 <script>$(document).ready(function(){$(".memenu").memenu();});</script>
 <script src="../js/simpleCart.min.js"> </script>
+>>>>>>> 20216350aee4d7761129a572d1207427a887daab
 <!-- slide -->
 </head>
 <body>
@@ -43,7 +59,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</ul>
 				</div>
 				<div class="col-md-4 logo">
+<<<<<<< HEAD
+					<a href="index.html"><img src="../fashion/images/logo.png" alt=""></a>	
+=======
 					<a href="index.html"><img src="../images/logo.png" alt=""></a>	
+>>>>>>> 20216350aee4d7761129a572d1207427a887daab
 				</div>
 		
 			<div class="col-md-4 header-left">		
@@ -206,9 +226,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</div>
 		<div class="clearfix"> </div>
 			<!---pop-up-box---->
+<<<<<<< HEAD
+					  <script type="text/javascript" src="../fashion/js/modernizr.custom.min.js"></script>    
+					<link href="../fashion/css/popuo-box.css" rel="stylesheet" type="text/css" media="all"/>
+					<script src="../fashion/js/jquery.magnific-popup.js" type="text/javascript"></script>
+=======
 					  <script type="text/javascript" src="../js/modernizr.custom.min.js"></script>    
 					<link href="../css/popuo-box.css" rel="stylesheet" type="text/css" media="all"/>
 					<script src="../js/jquery.magnific-popup.js" type="text/javascript"></script>
+>>>>>>> 20216350aee4d7761129a572d1207427a887daab
 					<!---//pop-up-box---->
 				<div id="small-dialog" class="mfp-hide">
 				<div class="search-top">
@@ -291,13 +317,26 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		  <tr>
 			<th>Item</th>
 			<th>Qty</th>		
+<<<<<<< HEAD
+=======
 			<th>Prices</th>
 			<th>Delery Detials</th>
 			<th>Subtotal</th>
+>>>>>>> 20216350aee4d7761129a572d1207427a887daab
 			<th>delect</th>
 		  </tr>
 		  <?php foreach ($res as $k=>$v): ?>
 		  	<tr>
+<<<<<<< HEAD
+			<td class="ring-in">
+			
+				<?php echo $v->content; ?>
+			
+		</td>
+		<td>
+			<div class="clearfix"> <?php echo $v->num; ?></div></td>
+				
+=======
 			<td class="ring-in"><a href="single.html" class="at-in"><img src="<?php echo '../images/'.$v->img; ?>" class="img-responsive" alt=""></a>
 			<div class="sed">
 				<h5><?php echo $v->goods_name; ?></h5>
@@ -309,6 +348,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<td class="price"><?php echo $v->price; ?></td>
 			<td>FREE SHIPPING</td>
 			<td class="sum"><?php echo $v->sum; ?></td>
+>>>>>>> 20216350aee4d7761129a572d1207427a887daab
 			<td><a href="del?id=<?php echo $v->id; ?>">delect</a></td>
 		  </tr>
 		  <?php endforeach ?>

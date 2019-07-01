@@ -47,10 +47,9 @@ Route::any('auth/add', 'AuthController@add')->middleware('rbac');
 Route::any('auth/del', 'AuthController@del')->middleware('rbac');
 Route::any('auth/save', 'AuthController@save')->middleware('rbac');
 Route::any('auth/empower', 'AuthController@empower')->middleware('rbac');
-Route::any('role/add', 'RoleController@add');
 Route::any('admin/out', 'AdminController@out');
 
-Route::any('role/add', 'RoleController@add');
+
 Route::any('menu/index', 'MenuController@index');
 Route::any('menu/upMenu', 'MenuController@upMenu');
 Route::post('menu/upMenuDo', 'MenuController@upMenuDo');
@@ -102,3 +101,10 @@ Route::any('order/details','OrderController@details');
 Route::any('order/statusindex','OrderController@statusindex');
 Route::any('order/statusDel','OrderController@statusDel');
 Route::any('order/statusUpdate','OrderController@statusUpdate');
+
+Route::any('order/orderUserUpdate','OrderController@orderUserUpdate');
+Route::any('order/doUserUpdate','OrderController@doUserUpdate');
+
+
+Route::any('rbac/index','RbacController@index');
+

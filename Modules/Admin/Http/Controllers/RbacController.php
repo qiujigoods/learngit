@@ -18,7 +18,7 @@ class RbacController extends Controller
 			// $info = request()->Session()->get('info');
 		// }
 
-		$id = 1;
+		$id = 3;
 
 		$admin_role = DB::table('admin_role')->where('admin_id', $id)->get();
 
