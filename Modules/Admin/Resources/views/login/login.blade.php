@@ -22,9 +22,14 @@
         <div class="message">x-admin2.0-管理登录</div>
         <div id="darkbannerwrap"></div>
         
+<<<<<<< HEAD
         <form method="post" class="layui-form" action='admin/login'>
             <input name="admin_name" placeholder="用户名"  type="text" lay-verify="required" class="layui-input" >
             <input name="email" placeholder="邮箱"  type="text" lay-verify="required" class="layui-input" >
+=======
+        <form method="post" class="layui-form" action='url("admin/login")'>
+            <input name="username" placeholder="用户名"  type="text" lay-verify="required" class="layui-input" >
+>>>>>>> c83b7bab2b4fb62d2621ec3df271a3f9be8aaee2
             <hr class="hr15">
             <input name="password" lay-verify="required" placeholder="密码"  type="password" class="layui-input">
             <hr class="hr15">

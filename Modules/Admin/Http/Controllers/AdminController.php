@@ -2,11 +2,17 @@
 
 namespace Modules\Admin\Http\Controllers;
 
+<<<<<<< HEAD
 use App\User;
 use Illuminate\Support\Facades\Request;
 use App\Http\Controllers\Controller;
 use DB;
 use Illuminate\Support\Facades\Session;
+=======
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\Routing\Controller;
+>>>>>>> c83b7bab2b4fb62d2621ec3df271a3f9be8aaee2
 
 class AdminController extends Controller
 {
@@ -22,6 +28,7 @@ class AdminController extends Controller
     public function login()
     {
         if(request()->isMethod('post')){
+<<<<<<< HEAD
 
             $data = request()->post();
 
@@ -30,6 +37,21 @@ class AdminController extends Controller
             if($res){
                 session(['info' => $res]);
                 return redirect('admin/home');
+=======
+            $data = request()->post();
+            if($data['luotest_response']==''){
+                 echo "验证错误123";die;
+            }
+
+            //var_dump($data['password']);die;
+            $res  = DB::table("admin")
+                                ->where('admin_name',$data['admin_name'])
+                                ->where('password',md5($data['password']))
+                                ->where('is_del','0')
+                                ->first();
+            if($res){
+                return redirect('index/index');
+>>>>>>> c83b7bab2b4fb62d2621ec3df271a3f9be8aaee2
             }else{
                 echo "账号或密码错误";die;
             }
@@ -37,6 +59,7 @@ class AdminController extends Controller
         
     }
 
+<<<<<<< HEAD
     public function out()
     {
         session()->forget('admin_name');
@@ -79,6 +102,8 @@ class AdminController extends Controller
         return view('admin::login/welcome');
     }
 
+=======
+>>>>>>> c83b7bab2b4fb62d2621ec3df271a3f9be8aaee2
 
     /**
      * Show the form for creating a new resource.

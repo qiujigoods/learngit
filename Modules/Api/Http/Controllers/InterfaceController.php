@@ -12,7 +12,6 @@ class InterfaceController extends Controller
 	//分类商品列表
 	public function index()
 	{
-		// $check = $this->check();
 		$type = DB::table('category')->paginate(10);
 
 		if ($type) {
@@ -27,18 +26,11 @@ class InterfaceController extends Controller
 	{
 		if (request()->isMethod('get')) {
 			$id = request()->input('id');
-
-			$check = $this->check();
-
-			if ($check) {
 				$detail = DB::table('goods')->where('id', $id)->get();
 
 				if ($detail) {
 					return json_encode(array(['code'=>1, 'msg'=>'获取商品详情成功', 'result'=>$detail]));
 				}
-
-				return json_encode(array(['code'=>0, 'msg'=>'获取商品详情失败']));
-			}
 
 			return json_encode(array(['code'=>0, 'msg'=>'验证用户信息失败']));
 		}
