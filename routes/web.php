@@ -16,7 +16,6 @@ Route::get('/', function () {
 });
 Route::get('user', 'UserController@show');
 Route::get('/admin', '\Modules\Admin\Http\Controllers\AdminController@index');
-<<<<<<< HEAD
 // //登录
 // Route::any('index/login','IndexController@login');
 // Route::any('index/index','IndexController@index');  //主页
@@ -34,10 +33,9 @@ Route::any('login/retrieve_g','LoginController@retrieve_g');
 Route::any('single','FashionController@single');
 Route::any('index','FashionController@index');
 Route::any('checkout','FashionController@checkout');
-=======
 //登录
 Route::any('index/login','IndexController@login');
-Route::any('index/index','IndexController@index');  //主页
+// Route::any('index/index','IndexController@index');  //主页
 Route::any('fl/index','FlController@showType');  //主页
 
 //商城前台
@@ -59,4 +57,17 @@ Route::any('fashion/seach','fashionController@seach');
 Route::any('fashion/del','fashionController@del');
 Route::any('fashion/contact','fashionController@contact');
 Route::post('fashion/contact_add','fashionController@contact_add');
->>>>>>> 20216350aee4d7761129a572d1207427a887daab
+Route::any('userinfo','UserinfoController@userinfo');
+
+Route::any('login/login','LoginController@login');
+Route::any('login/loginOut','LoginController@loginOut');
+Route::any('login/signup','LoginController@signup');  
+Route::post('login/signup_add','LoginController@signup_add');
+Route::any('login/retrieve','LoginController@retrieve'); 
+Route::post('login/updpwd','LoginController@updpwd'); 
+Route::post('login/updpwd_g','LoginController@updpwd_g');
+Route::any('login/retrieve_g','LoginController@retrieve_g');
+
+Route::any('single','FashionController@single');
+Route::any('index','fashionController@index');
+Route::any('checkout','FashionController@checkout');
