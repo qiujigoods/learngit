@@ -28,6 +28,7 @@ Route::any('admin/welcome', 'AdminController@welcome');
 Route::any('admin/login', 'AdminController@login');
 Route::any('admin/home', 'AdminController@home');
 
+
 //权限限制
 // Route::any('rbac/index', 'RbacController@index');
 
