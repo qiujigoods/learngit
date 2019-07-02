@@ -14,7 +14,10 @@ class WarehouseController extends Controller
 	{
 		$res = DB::table('warehouse')
 							->paginate(10);
-							echo "<pre>";
+<<<<<<< HEAD
+=======
+							// echo "<pre>";
+>>>>>>> 20216350aee4d7761129a572d1207427a887daab
 		$num = count($res);
 
 		for ($i=0; $i < $num; $i++) { 

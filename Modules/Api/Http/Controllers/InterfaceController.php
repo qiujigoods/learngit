@@ -12,8 +12,12 @@ class InterfaceController extends Controller
 	//分类商品列表
 	public function index()
 	{
+<<<<<<< HEAD:Modules/Api/Http/Controllers/InterfaceController.php
 		// $check = $this->check();
 		$type = DB::table('category')->paginate(10);
+=======
+		$type = DB::table('category')->get();
+>>>>>>> 3bade7f0df49aa60d0e190b7ab5527ab1f810855:Modules/Api/Http/Controllers/GoodsController.php
 
 		if ($type) {
 			return json_encode(array(['code'=>1, 'msg'=>'获取成功', 'result'=>$type]));
@@ -234,9 +238,17 @@ class InterfaceController extends Controller
 
 		$info = DB::table('user')->where('token', $token)->get();
 
+<<<<<<< HEAD:Modules/Api/Http/Controllers/InterfaceController.php
 		if ($info) {
 			return json_encode(array(['code'=>1, 'msg'=>'token令牌正常']));
 		}
+=======
+		$time = time();
+		if ($info->logintime+2*60*60>$time) {
+			return json_encode(array(['code'=>1, 'msg'=>'token令牌正常', 'result'=>$info]));
+		}
+		return json_encode(array(['code'=>0, 'msg'=>'token已过期']));
+>>>>>>> 3bade7f0df49aa60d0e190b7ab5527ab1f810855:Modules/Api/Http/Controllers/GoodsController.php
 	}
 }
 

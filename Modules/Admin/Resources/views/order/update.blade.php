@@ -28,10 +28,9 @@
                   修改状态
               </label>
               <div class="layui-input-inline">
-                  <input type="radio" name="status" required="" autocomplete="off" class="layui-input" title="生成订单" value="1">
-                  <input type="radio" name="status" required="" autocomplete="off" class="layui-input" title="支付订单" value="2">
-                  <input type="radio" name="status" required="" autocomplete="off" class="layui-input" title="取消订单" value="3">
-                  <input type="radio" name="status" required="" autocomplete="off" class="layui-input" title="作废订单" value="4">
+                  <input type="radio" name="status" required="" autocomplete="off" class="layui-input" title="待支付订单" value="1">
+                  <input type="radio" name="status" required="" autocomplete="off" class="layui-input" title="待收货订单" value="2">
+                  <input type="radio" name="status" required="" autocomplete="off" class="layui-input" title="带评论订单" value="3">
 
               </div>
           </div>
