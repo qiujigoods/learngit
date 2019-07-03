@@ -15,7 +15,7 @@ class ActiveController extends Controller
 
 		$data = DB::table('coupon')->where('active_id', $id)->get();
 
-		return view('');
+		return 1;
 	}
 	//领取优惠券
 	public function join()
@@ -35,6 +35,15 @@ class ActiveController extends Controller
 			echo "<script>alert('领取优惠券成功！');</script>";
 		}
 		echo "<script>alert('领取优惠券失败');</script>";
+	}
+
+	//支付
+	public function pay()
+	{
+		$user_id = 5;
+		$money = 300;
+
+		$data = $this->active($user_id, $money); 
 	}
 
 	//使用优惠券
