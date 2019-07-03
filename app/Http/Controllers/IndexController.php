@@ -23,6 +23,7 @@ class IndexController extends Controller
 								->where('is_del','0')
 								->first();
 			if($res){
+				session::set('info', $res);
 				return redirect('index/index');
 			}else{
 				echo "账号或密码错误";die;
