@@ -40,6 +40,8 @@ Route::any('fashion/seach','fashionController@seach');
 Route::any('fashion/del','fashionController@del');
 Route::any('fashion/contact','fashionController@contact');
 Route::post('fashion/contact_add','fashionController@contact_add');
+Route::any('fashion/seckill','fashionController@seckill');
+Route::any('fashion/goodsKill','fashionController@goodsKill');
 Route::any('userinfo','UserinfoController@userinfo');
 
 Route::any('login/login','LoginController@login');
@@ -54,3 +56,9 @@ Route::any('login/retrieve_g','LoginController@retrieve_g');
 Route::any('single','FashionController@single');
 Route::any('index','fashionController@index');
 Route::any('checkout','FashionController@checkout');
+
+//优惠券
+Route::any('activing/index','ActivingController@index'); 
+Route::any('activing/join','ActivingController@join');  
+Route::any('activing/pay','ActivingController@pay'); 
+Route::any('activing/active','ActivingController@active');  

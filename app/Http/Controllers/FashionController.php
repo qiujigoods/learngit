@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Request;
 use App\Http\Controllers\Controller;
 use DB;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Redis;
+use Illuminate\Support\Facades\Cache;
 
 class FashionController extends Controller
 {
@@ -44,5 +46,45 @@ class FashionController extends Controller
 		$user_id = 4;
 		$res = DB::table("goods_car")->where('user_id','=',$user_id)->get();
 		return view("fashion/checkout",['res'=>$res]);
+	}
+	public function seckill()
+	{
+		$data = DB::table('ih_store')
+		->join('ih_goods', 'ih_store.id', '=', 'ih_goods.goods_id')
+		->get();
+		$data = json_encode($data);
+		$data = json_decode($data);
+		// echo '<pre>';
+		// var_dump($data);exit;
+		return view('fashion/seckill',['data'=>$data]);
+	}
+	public function goodsKill()
+	{
+		// $user = request()->get('id');
+		$name = request()->get('name');
+		$data = Redis::lpop($name);
+		$len = Redis::llen($name);
+		if($data == ''){
+			echo '抢购失败';
+			$this->insertLog('库存减少失败');
+			echo $len;
+		}else{
+			$this->insertLog('库存减少成功');
+			echo '抢购成功';
+			echo $len;
+
+		}
+		
+	}
+	function insertLog($event,$type=0){
+	    global $conn;
+	    $arr1 = [
+	    	'event' => $event,
+	    	'type' => '0'
+	    ];
+	    DB::table('ih_log')->insert($arr1);
+	}
+	function build_order_no(){
+	  return date('ymd').substr(implode(NULL, array_map('ord', str_split(substr(uniqid(), 7, 13), 1))), 0, 8);
 	}
 }
