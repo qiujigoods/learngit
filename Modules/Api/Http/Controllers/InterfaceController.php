@@ -7,12 +7,17 @@ use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
 use DB;
 
-class GoodsController extends Controller
+class InterfaceController extends Controller
 {
 	//分类商品列表
 	public function index()
 	{
+<<<<<<< HEAD:Modules/Api/Http/Controllers/InterfaceController.php
+		// $check = $this->check();
+		$type = DB::table('category')->paginate(10);
+=======
 		$type = DB::table('category')->get();
+>>>>>>> 3bade7f0df49aa60d0e190b7ab5527ab1f810855:Modules/Api/Http/Controllers/GoodsController.php
 
 		if ($type) {
 			return json_encode(array(['code'=>1, 'msg'=>'获取成功', 'result'=>$type]));
@@ -30,7 +35,7 @@ class GoodsController extends Controller
 			$check = $this->check();
 
 			if ($check) {
-				$detail = DB::table('goods')->where('id', $id)->find();
+				$detail = DB::table('goods')->where('id', $id)->get();
 
 				if ($detail) {
 					return json_encode(array(['code'=>1, 'msg'=>'获取商品详情成功', 'result'=>$detail]));
@@ -49,10 +54,9 @@ class GoodsController extends Controller
 		if (request()->isMethod('post')) {
 			$data = request()->post();
 
-			$check = $this->$check();
+			$check = $this->check();
 
 			if ($check) {
-				$data['user_id'] = $check['result']->user_id;
 				$data['create_time'] = time();
 
 				if (DB::table('goods_car')->insert($data)) {
@@ -69,13 +73,12 @@ class GoodsController extends Controller
 	//添加收藏
 	public function collect()
 	{
-		if (request()->isMethod('get')) {
-			$data['rid'] = request()->input('rid');
+		if (request()->isMethod('post')) {
+			$data = request()->post();
 
-			$check = $this->$check();
+			$check = $this->check();
 
 			if ($check) {
-				$data['user_id'] = $check['result']->user_id;
 				$data['time'] = time();
 
 				if (DB::table('favorite')->insert($data)) {
@@ -95,14 +98,15 @@ class GoodsController extends Controller
 		if (request()->isMethod('post')) {
 			$data = request()->post();
 
-			$check = $this->$check();
+			$check = $this->check();
 
 			if ($check) {
-				//调用支付接口 **************
-				$pay = $this->pay();
 
-				if ($pay['msg'] == '支付成功') {
-					return json_encode(array(['code'=>1, 'msg'=>'立即购买成功']));
+				if (DB::table('order')->insert($data)) {
+
+					$order = DB::table('order')->where('user_id', $data['user_id'])->first();
+
+					return json_encode(array(['code'=>1, 'msg'=>'立即购买', 'result'=>$order]));
 				}
 
 				return json_encode(array(['code'=>0, 'msg'=>'立即购买失败']));
@@ -116,7 +120,8 @@ class GoodsController extends Controller
 	public function goodlist()
 	{
 		if (request()->isMethod('get')) {
-			$check = $this->$check();
+
+			$check = $this->check();
 
 			if ($check) {
 				$data = DB::table('goods_car')->paginate(10);
@@ -138,20 +143,15 @@ class GoodsController extends Controller
 		if (request()->isMethod('post')) {
 			$data = request()->post();
 
-			$check = $this->$check();
+			$check = $this->check();
 
 			if ($check) {
-				//调用支付接口 **************
-				$pay = $this->pay($data);
 
-				if ($pay['msg'] == '支付成功') {
-
-					if (DB::table('goods_car')->where('user_id', $check['result']->user_id)->update(['is_pay'=>1])) {
-						return json_encode(array(['code'=>1, 'msg'=>'结算成功']));
-					}
-					
-					return json_encode(array(['code'=>0, 'msg'=>'结算失败']));
+				if (DB::table('goods_car')->where('user_id', $data['user_id'])->where('content',$data['content'])->first())
+				{
+					return json_encode(array(['code'=>1, 'msg'=>'是否结算?']));
 				}
+				return json_encode(array(['code'=>0, 'msg'=>'结算失败']));
 			}
 
 			return json_encode(array(['code'=>0, 'msg'=>'验证用户信息失败']));
@@ -162,12 +162,13 @@ class GoodsController extends Controller
 	public function delete()
 	{
 		if (request()->isMethod('get')) {
-			$rid = request()->input('rid');
+			$id = request()->input('user_id');
+			$content = request()->input('content');
 
-			$check = $this->$check();
+			$check = $this->check();
 
 			if ($check) {
-				$data = DB::table('goods_car')->where('user_id', $check['result']->user_id)->where('rid', $rid)->delete();
+				$data = DB::table('goods_car')->where('user_id', $id)->where('content', $content)->delete();
 
 				if ($data) {
 					return json_encode(array(['code'=>1, 'msg'=>'删除成功']));
@@ -186,10 +187,10 @@ class GoodsController extends Controller
 		if (request()->isMethod('post')) {
 			$data = request()->post();
 
-			$check = $this->$check();
+			$check = $this->check();
 
 			if ($check) {
-				$data = DB::table('goods_car')->where('user_id', $check['result']->user_id)->where('rid', $data['rid'])->update(['num'=>$data['num']]);
+				$data = DB::table('goods_car')->where('user_id', $data['user_id'])->where('content', $data['content'])->update(['num'=>$data['num']]);
 
 				if ($data) {
 					return json_encode(array(['code'=>1, 'msg'=>'修改数量成功']));
@@ -202,32 +203,52 @@ class GoodsController extends Controller
 		}
 	} 
 
-	//下单接口
-	public function true()
+	//活动接口
+	public function active()
 	{
-		if (condition) {
-			# code...
+		if (request()->isMethod('get')) {
+			$name = request()->input('name');
+
+			$check = $this->check();
+
+			if ($check) {
+
+				$active = $this->$name();
+
+				if ($active) {
+					return json_encode(array(['code'=>1, 'msg'=>'进入活动', 'result'=>$active]));
+				}
+
+				return json_encode(array(['code'=>0, 'msg'=>'进入活动失败']));
+			}
+
+			return json_encode(array(['code'=>0, 'msg'=>'验证用户信息失败']));
 		}
 	}
 
-	//调用第三方接口支付接口
-	// public function pay()
-	// {
-	// 	$url = 'https://openapi.alipay.com/gateway.do';
-	// }
+	public function shiyi()
+	{
+		return 999;
+	}
 
 	//token验证
 	public function check()
 	{
 		$token = request()->input('token');
 
-		$info = DB::table('member')->where('token', $token)->find();
+		$info = DB::table('user')->where('token', $token)->get();
 
+<<<<<<< HEAD:Modules/Api/Http/Controllers/InterfaceController.php
+		if ($info) {
+			return json_encode(array(['code'=>1, 'msg'=>'token令牌正常']));
+		}
+=======
 		$time = time();
 		if ($info->logintime+2*60*60>$time) {
 			return json_encode(array(['code'=>1, 'msg'=>'token令牌正常', 'result'=>$info]));
 		}
 		return json_encode(array(['code'=>0, 'msg'=>'token已过期']));
+>>>>>>> 3bade7f0df49aa60d0e190b7ab5527ab1f810855:Modules/Api/Http/Controllers/GoodsController.php
 	}
 }
 

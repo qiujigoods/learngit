@@ -67,7 +67,7 @@
             </td>
             <td>{{ $user->goods_no }}</td>
             <td>{{ $user->name }}</td>
-            <td>{{ $user->img }}</td>
+            <td><img src="<?php echo $user->img; ?>" style="width: 70px;height: 50px"></td>
             <td>{{ $user->content }}</td>
             <td>{{ $user->is_delivery_fee==1?"免运费":"收运费" }}</td>
             <td>{{ $user->sort }}</td>

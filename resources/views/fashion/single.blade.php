@@ -2,10 +2,17 @@
 <html>
 <head>
 <title>Single</title>
+<<<<<<< HEAD
+<link href="../fashion/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<!-- Custom Theme files -->
+<!--theme-style-->
+<link href="../fashion/css/style.css" rel="stylesheet" type="text/css" media="all" />	
+=======
 <link href="../css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 <!-- Custom Theme files -->
 <!--theme-style-->
 <link href="../css/style.css" rel="stylesheet" type="text/css" media="all" />	
+>>>>>>> 20216350aee4d7761129a572d1207427a887daab
 <!--//theme-style-->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -36,6 +43,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</ul>
 				</div>
 				<div class="col-md-4 logo">
+<<<<<<< HEAD
+					<a href="index.html"><img src="../fashion/images/logo.png" alt=""></a>	
+				</div>
+		
+			<div class="col-md-4 header-left">		
+					<p class="log"><a href="account.html"  >Login</a>
+						<span>or</span><a  href="account.html"  >Signup</a></p>
+=======
 					<a href="index"><img src="../images/logo.png" alt=""></a>	
 				</div>
 		
@@ -49,11 +64,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<span>or</span><a  href="signup"  >Signup</a>
 					</p>
 				<?php } ?>
+>>>>>>> 20216350aee4d7761129a572d1207427a887daab
 					<div class="cart box_1">
 						<a href="checkout.html">
 						<h3> <div class="total">
 							<span class="simpleCart_total"></span></div>
+<<<<<<< HEAD
+							<img src="../fashion/images/cart.png" alt=""/></h3>
+=======
 							<img src="images/cart.png" alt=""/></h3>
+>>>>>>> 20216350aee4d7761129a572d1207427a887daab
 						</a>
 						<p><a href="javascript:;" class="simpleCart_empty">Empty Cart</a></p>
 
@@ -192,10 +212,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			  </ul> 
 			</div>
 				<div class="col-md-2 search">		
+<<<<<<< HEAD
+			<a class="play-icon popup-with-zoom-anim" href="#small-dialog"><i class="glyphicon glyphicon-search"> </i> </a>
+=======
 			<form action="seach" method="get">
 						<input type="text" name="name">
 						<input type="submit" value="搜搜">
 					</form>		
+>>>>>>> 20216350aee4d7761129a572d1207427a887daab
 		</div>
 		<div class="clearfix"> </div>
 				<div id="small-dialog" class="mfp-hide">
@@ -219,6 +243,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<div class="col-md-5 grid">		
 		<div class="flexslider">
 			  <ul class="slides">
+<<<<<<< HEAD
+			    <li data-thumb="../fashion/images/si.jpg">
+			        <div class="thumb-image"> <img src="../fashion/images/si.jpg" data-imagezoom="true" class="img-responsive"> </div>
+			    </li>
+			    <li data-thumb="../fashion/images/si1.jpg">
+			         <div class="thumb-image"> <img src="../fashion/images/si1.jpg" data-imagezoom="true" class="img-responsive"> </div>
+			    </li>
+			    <li data-thumb="../fashion/images/si2.jpg">
+			       <div class="thumb-image"> <img src="../fashion/images/si2.jpg" data-imagezoom="true" class="img-responsive"> </div>
+			    </li> 
+=======
 			  	<?php foreach ($res as $k=>$v): ?>
 			    <li data-thumb="<?php echo '../images/'.$v->img; ?>">
 			        <div class="thumb-image"> <img src="<?php echo '../images/'.$v->img; ?>" data-imagezoom="true" class="img-responsive"> </div>
@@ -230,6 +265,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			        <div class="thumb-image"> <img src="<?php echo '../images/'.$v->img; ?>" data-imagezoom="true" class="img-responsive"> </div>
 			    </li>
 			    <?php endforeach ?>
+>>>>>>> 20216350aee4d7761129a572d1207427a887daab
 			  </ul>
 		</div>
 	</div>	
@@ -237,7 +273,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<?php foreach ($res as $k=>$v): ?>
 						<div class="single-para simpleCart_shelfItem">
 							<h1><?php echo $v->name; ?></h1>
+<<<<<<< HEAD
+							<p><?php echo $v->content; ?></p>
+=======
 							<p><?php echo $v->introduce; ?></p>
+>>>>>>> 20216350aee4d7761129a572d1207427a887daab
 							<div class="star-on">
 								<ul>
 									<li><a href="#"><i class="glyphicon glyphicon-star"> </i></a></li>
@@ -248,16 +288,86 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								</ul>
 								<div class="review">
 									<a href="#"> 3 reviews </a>/
+<<<<<<< HEAD
+									<a href="#">  Write a review</a>
+=======
 									<a href="contact?id=<?php echo $v->id; ?>">  Write a review</a>
+>>>>>>> 20216350aee4d7761129a572d1207427a887daab
 								</div>
 							<div class="clearfix"> </div>
 							</div>
 							
+<<<<<<< HEAD
+								<label  class="add-to item_price">$<?php echo $v->market_price; ?></label>
+=======
 								<label  class="add-to item_price">$<?php echo $v->price; ?></label>
+>>>>>>> 20216350aee4d7761129a572d1207427a887daab
 							
 							<div class="available">
 								<h6>Available Options :</h6>
 								<ul>
+<<<<<<< HEAD
+									<?php foreach ($sku as $i=>$j): ?>
+										<li><?php echo $j[0]->name; ?><select>
+											<?php foreach ($attr as $a=>$b): ?>
+												@if($j[0]->id == $b->attribute_id)
+													<option><?php echo $b->attribute_value; ?></option>
+												@endif
+											<?php endforeach ?>
+										</select></li>
+									<?php endforeach ?>
+							</ul>
+						</div>
+								<a href="#" class="cart item_add">More details</a>
+						</div>
+					<?php endforeach ?>
+
+					</div>
+			<div class="clearfix"> </div>
+			<div class="content-top1">
+				<div class="col-md-4 col-md3">
+					<div class="col-md1 simpleCart_shelfItem">
+						<a href="single.html">
+							<img class="img-responsive" src="../fashion/images/pi6.png" alt="" />
+						</a>
+						<h3><a href="single.html">Jeans</a></h3>
+						<div class="price">
+								<h5 class="item_price">$300</h5>
+								<a href="#" class="item_add">Add To Cart</a>
+								<div class="clearfix"> </div>
+						</div>
+					</div>
+				</div>	
+			<div class="col-md-4 col-md3">
+					<div class="col-md1 simpleCart_shelfItem">
+						<a href="single.html">
+							<img class="img-responsive" src="../fashion/images/pi7.png" alt="" />
+						</a>
+						<h3><a href="single.html">Tops</a></h3>
+						<div class="price">
+								<h5 class="item_price">$300</h5>
+								<a href="#" class="item_add">Add To Cart</a>
+								<div class="clearfix"> </div>
+						</div>
+						
+					</div>
+				</div>	
+			<div class="col-md-4 col-md3">
+					<div class="col-md1 simpleCart_shelfItem">
+						<a href="single.html">
+							<img class="img-responsive" src="../fashion/images/pi.png" alt="" />
+						</a>
+						<h3><a href="single.html">Tops</a></h3>
+						<div class="price">
+								<h5 class="item_price">$300</h5>
+								<a href="#" class="item_add">Add To Cart</a>
+								<div class="clearfix"> </div>
+						</div>
+						
+					</div>
+				</div>	
+			
+=======
 									
 								<li>Size:<select>
 									<option>Large</option>
@@ -295,6 +405,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</div>
 				</div>	
 				<?php endforeach ?>
+>>>>>>> 20216350aee4d7761129a572d1207427a887daab
 			<div class="clearfix"> </div>
 			</div>		
 </div>
@@ -366,6 +477,46 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!--seller-->
 				<div class="product-bottom">
 						<h3 class="cate">Best Sellers</h3>
+<<<<<<< HEAD
+					<div class="product-go">
+						<div class=" fashion-grid">
+							<a href="single.html"><img class="img-responsive " src="../fashion/images/pr.jpg" alt=""></a>	
+						</div>
+						<div class=" fashion-grid1">
+							<h6 class="best2"><a href="single.html" >Lorem ipsum dolor sitamet consectetuer  </a></h6>
+							<span class=" price-in1"> $40.00</span>
+						</div>	
+						<div class="clearfix"> </div>
+					</div>
+					<div class="product-go">
+						<div class=" fashion-grid">
+							<a href="single.html"><img class="img-responsive " src="../fashion/images/pr1.jpg" alt=""></a>	
+						</div>
+						<div class=" fashion-grid1">
+							<h6 class="best2"><a href="single.html" >Lorem ipsum dolor sitamet consectetuer  </a></h6>
+							<span class=" price-in1"> $40.00</span>
+						</div>	
+						<div class="clearfix"> </div>
+					</div>
+					<div class="product-go">
+						<div class=" fashion-grid">
+							<a href="single.html"><img class="img-responsive " src="../fashion/images/pr2.jpg" alt=""></a>	
+						</div>
+						<div class=" fashion-grid1">
+							<h6 class="best2"><a href="single.html" >Lorem ipsum dolor sitamet consectetuer  </a></h6>
+							<span class=" price-in1"> $40.00</span>
+						</div>	
+						<div class="clearfix"> </div>
+					</div>	
+					<div class="product-go">
+						<div class=" fashion-grid">
+							<a href="single.html"><img class="img-responsive " src="../fashion/images/pr3.jpg" alt=""></a>	
+						</div>
+						<div class=" fashion-grid1">
+							<h6 class="best2"><a href="single.html" >Lorem ipsum dolor sitamet consectetuer  </a></h6>
+							<span class=" price-in1"> $40.00</span>
+						</div>	
+=======
 						<?php foreach ($res1 as $key => $v): ?>
 							<div class="product-go">
 						<div class=" fashion-grid">
@@ -380,6 +531,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<?php endforeach ?>
 					
 					
+>>>>>>> 20216350aee4d7761129a572d1207427a887daab
 						<div class="clearfix"> </div>
 					</div>		
 				</div>
@@ -478,6 +630,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</div>
 </div>
 <!-- slide -->
+<<<<<<< HEAD
+<script src="../fashion/js/jquery.min.js"></script>
+<script src="../fashion/js/imagezoom.js"></script>
+<!-- start menu -->
+<link href="../fashion/css/memenu.css" rel="stylesheet" type="text/css" media="all" />
+<script type="text/javascript" src="../fashion/js/memenu.js"></script>
+<script>$(document).ready(function(){$(".memenu").memenu();});</script>
+<script src="../fashion/js/simpleCart.min.js"> </script>
+=======
 <script src="../js/jquery.min.js"></script>
 <script src="../js/imagezoom.js"></script>
 <!-- start menu -->
@@ -485,6 +646,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script type="text/javascript" src="../js/memenu.js"></script>
 <script>$(document).ready(function(){$(".memenu").memenu();});</script>
 <script src="../js/simpleCart.min.js"> </script>
+>>>>>>> 20216350aee4d7761129a572d1207427a887daab
 <!--initiate accordion-->
 						<script type="text/javascript">
 							$(function() {
@@ -506,8 +668,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							});
 						</script>
 						<!-- FlexSlider -->
+<<<<<<< HEAD
+  <script defer src="../fashion/js/jquery.flexslider.js"></script>
+<link rel="stylesheet" href="../fashion/css/flexslider.css" type="text/css" media="screen" />
+=======
   <script defer src="../js/jquery.flexslider.js"></script>
 <link rel="stylesheet" href="../css/flexslider.css" type="text/css" media="screen" />
+>>>>>>> 20216350aee4d7761129a572d1207427a887daab
 
 <script>
 // Can also be used with $(document).ready()
@@ -519,8 +686,13 @@ $(window).load(function() {
 });
 </script>
 <!---pop-up-box---->
+<<<<<<< HEAD
+					<link href="../fashion/css/popuo-box.css" rel="stylesheet" type="text/css" media="all"/>
+					<script src="../fashion/js/jquery.magnific-popup.js" type="text/javascript"></script>
+=======
 					<link href="../css/popuo-box.css" rel="stylesheet" type="text/css" media="all"/>
 					<script src="../js/jquery.magnific-popup.js" type="text/javascript"></script>
+>>>>>>> 20216350aee4d7761129a572d1207427a887daab
 					<!---//pop-up-box---->
 					 <script>
 						$(document).ready(function() {

@@ -64,13 +64,11 @@
               <td><?php echo $v->create_time; ?></td>
               <td>
                 <?php if($v->status==1){ ?>
-                    生成订单
+                    待支付订单
                 <?php }else if($v->status==2){?>
-                    支付订单
+                    待收货订单
                 <?php }else if($v->status==3){?>
-                    取消订单
-                <?php }else if($v->status==4){?>
-                    作废订单
+                    带评论订单
               <?php } ?>
 
               </td>

@@ -18,13 +18,14 @@ class RbacController extends Controller
 			// $info = request()->Session()->get('info');
 		// }
 
-		$id = 1;
+		$id = 3;
 
 		$admin_role = DB::table('admin_role')->where('admin_id', $id)->get();
 
 		$object = $admin_role->first();
 		
 		$role_node = DB::table('role_node')->where('role_id', $object->role_id)->get();
+
 
 		$relations = [];
 
@@ -33,7 +34,7 @@ class RbacController extends Controller
 		}
 
 		$node = DB::table('node')->whereIn('id', $relations)->get();
-
+    
 		$url = \Route::current()->getActionName();
 
     	$c = strtolower(substr($url, strrpos($url, '\\')+1));

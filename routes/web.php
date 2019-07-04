@@ -12,10 +12,27 @@
 */
 
 Route::get('/', function () {
-    return view('login');
+    return view('fashion/index');
 });
 Route::get('user', 'UserController@show');
 Route::get('/admin', '\Modules\Admin\Http\Controllers\AdminController@index');
+// //登录
+// Route::any('index/login','IndexController@login');
+// Route::any('index/index','IndexController@index');  //主页
+// Route::any('fl/index','FlController@showType');  //主页
+
+Route::any('login/login','LoginController@login');
+Route::any('login/loginOut','LoginController@loginOut');
+Route::any('login/signup','LoginController@signup');  
+Route::post('login/signup_add','LoginController@signup_add');
+Route::any('login/retrieve','LoginController@retrieve'); 
+Route::post('login/updpwd','LoginController@updpwd'); 
+Route::post('login/updpwd_g','LoginController@updpwd_g');
+Route::any('login/retrieve_g','LoginController@retrieve_g');
+
+Route::any('single','FashionController@single');
+Route::any('index','FashionController@index');
+Route::any('checkout','FashionController@checkout');
 //登录
 Route::any('index/login','IndexController@login');
 // Route::any('index/index','IndexController@index');  //主页
@@ -56,9 +73,12 @@ Route::any('login/retrieve_g','LoginController@retrieve_g');
 Route::any('single','FashionController@single');
 Route::any('index','fashionController@index');
 Route::any('checkout','FashionController@checkout');
+<<<<<<< HEAD
 
 //优惠券
 Route::any('activing/index','ActivingController@index'); 
 Route::any('activing/join','ActivingController@join');  
 Route::any('activing/pay','ActivingController@pay'); 
 Route::any('activing/active','ActivingController@active');  
+=======
+>>>>>>> 516790d84f206c056cbd9338a766a48d4ea2e172
