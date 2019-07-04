@@ -95,6 +95,9 @@ Route::any('active/index','ActiveController@index');
 Route::any('active/del','ActiveController@del');
 Route::any('active/upd','ActiveController@upd');
 Route::any('active/doUpd','ActiveController@doUpd');
+Route::any('active/seckill','ActiveController@seckill');
+Route::any('active/addkill','ActiveController@addkill');
+Route::any('active/doAddKill','ActiveController@doAddKill');
 
 
 
