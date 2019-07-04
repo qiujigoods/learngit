@@ -56,6 +56,7 @@ class ActiveController extends Controller
 			$coupon = DB::table('coupon')->where('id', $data['coupon_id'])->first();
 
 			if ($money>$total) {
+				DB::table('coupon_log')->where('id', $data['coupon_id'])->update(['is_user'=>1]);
 				return $money-$coupon['discount'];
 			}
 		}

@@ -4,11 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-<<<<<<< HEAD
     "content-hash": "9faf1cffbfe1ff6ae297a566808ffb05",
-=======
-    "content-hash": "538bcb130191e64c994d7592ecf39e23",
->>>>>>> c83b7bab2b4fb62d2621ec3df271a3f9be8aaee2
     "packages": [
         {
             "name": "barryvdh/laravel-ide-helper",
@@ -1587,7 +1583,6 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/nWidart/laravel-modules/zipball/52e2e8142cc9f06feb276b6d18af7c98db5b3703",
                 "reference": "52e2e8142cc9f06feb276b6d18af7c98db5b3703",
-<<<<<<< HEAD
                 "shasum": "",
                 "mirrors": [
                     {
@@ -1595,9 +1590,6 @@
                         "preferred": true
                     }
                 ]
-=======
-                "shasum": ""
->>>>>>> c83b7bab2b4fb62d2621ec3df271a3f9be8aaee2
             },
             "require": {
                 "php": ">=7.2"

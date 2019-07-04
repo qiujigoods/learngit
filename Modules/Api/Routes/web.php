@@ -35,3 +35,5 @@ Route::any('interface/delete', 'InterfaceController@delete');
 Route::any('interface/number', 'InterfaceController@number');
 //下单接口
 Route::any('interface/active', 'InterfaceController@active');
+//调用第三方接口支付接口
+// Route::any('interface/index', 'InterfaceController@index');

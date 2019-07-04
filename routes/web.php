@@ -25,8 +25,8 @@ Route::any('fl/index','FlController@showType');  //主页
 Route::any('register/register','RegisterController@register');
 
 
-//活动
-Route::any('active/index','ActiveController@index');  //主页
-Route::any('active/join','ActiveController@join');  //主页
-Route::any('active/pay','ActiveController@pay');  //主页
-Route::any('active/active','ActiveController@active');  //主页
+//优惠券
+Route::any('activing/index','ActivingController@index');  
+Route::any('activing/join','ActivingController@join');  
+Route::any('activing/pay','ActivingController@pay');  
+Route::any('activing/active','ActivingController@active');  

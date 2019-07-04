@@ -12,7 +12,6 @@
 */
 
 Route::prefix('admin')->group(function() {
-<<<<<<< HEAD
     Route::any('/', 'AdminController@index');
 });
 
@@ -107,7 +106,3 @@ Route::any('order/details','OrderController@details');
 Route::any('order/statusindex','OrderController@statusindex');
 Route::any('order/statusDel','OrderController@statusDel');
 Route::any('order/statusUpdate','OrderController@statusUpdate');
-=======
-    Route::get('/', 'AdminController@index');
-});
->>>>>>> c83b7bab2b4fb62d2621ec3df271a3f9be8aaee2
