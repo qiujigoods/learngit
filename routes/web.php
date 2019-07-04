@@ -73,12 +73,9 @@ Route::any('login/retrieve_g','LoginController@retrieve_g');
 Route::any('single','FashionController@single');
 Route::any('index','fashionController@index');
 Route::any('checkout','FashionController@checkout');
-<<<<<<< HEAD
 
 //优惠券
 Route::any('activing/index','ActivingController@index'); 
 Route::any('activing/join','ActivingController@join');  
 Route::any('activing/pay','ActivingController@pay'); 
 Route::any('activing/active','ActivingController@active');  
-=======
->>>>>>> 516790d84f206c056cbd9338a766a48d4ea2e172
